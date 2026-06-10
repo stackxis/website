@@ -1,9 +1,13 @@
+AddType application/manifest+json .webmanifest
+
 <IfModule mod_rewrite.c>
     <IfModule mod_negotiation.c>
         Options -MultiViews -Indexes
     </IfModule>
 
     RewriteEngine On
+
+    RewriteRule ^favicon\.ico$ images/favicons/favicon.ico [L]
 
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .
