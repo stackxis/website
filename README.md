@@ -1,6 +1,6 @@
 # Stackxis
 
-Laravel marketing site. PHP only — no npm or Vite.
+Official website of Stackxis.
 
 ## Setup
 
