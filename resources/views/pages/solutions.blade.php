@@ -2,13 +2,13 @@
 
 @section('content')
     <x-page-hero
-        eyebrow="Solutions & Expertise"
+        eyebrow="Expertise"
         title='Domains we know. Tools we <span class="text-gradient-brand">trust</span>.'
         description="Depth in regulated, complex industries — paired with a modern, opinionated technology stack."
     />
 
     <x-section>
-        <x-section-header eyebrow="Industries" title="Where we've shipped the most." />
+        <x-section-header eyebrow="Domains" title="Where we've shipped the most." />
         <div class="mt-12 grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-hairline border border-hairline rounded-3xl overflow-hidden">
             @foreach ([
                 ['Fintech & Payments', 'Trading platforms, ledgers, KYC pipelines, and compliance-grade infrastructure.'],
@@ -28,7 +28,7 @@
 
     <section class="border-t border-hairline bg-primary text-primary-foreground">
         <div class="container-page py-24">
-            <x-section-header eyebrow="Technology" title="A modern, deliberate stack." />
+            <x-section-header eyebrow="Stack" title="A modern, deliberate toolkit." />
             <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
                 @foreach ([
                     'Frontend' => ['React', 'Next.js', 'TanStack', 'TypeScript', 'Tailwind', 'React Native'],

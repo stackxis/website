@@ -2,9 +2,9 @@
 
 @section('content')
     <x-page-hero
-        eyebrow="Services"
+        eyebrow="Capabilities"
         title='Engineering that covers the <span class="text-gradient-brand">full lifecycle</span>.'
-        description="From strategy and design through deployment and operations — pick a single capability or hand us the whole product."
+        description="From strategy and design through deployment and operations — pick one capability or hand us the whole product."
     />
 
     <x-section>

@@ -1,10 +1,10 @@
 @php
     $links = [
-        ['route' => 'home', 'label' => 'Home', 'exact' => true],
-        ['route' => 'services', 'label' => 'Services'],
-        ['route' => 'solutions', 'label' => 'Products'],
-        ['route' => 'about', 'label' => 'About'],
-        ['route' => 'careers', 'label' => 'Careers'],
+        ['route' => 'home', 'label' => 'Start', 'exact' => true],
+        ['route' => 'services', 'label' => 'Capabilities'],
+        ['route' => 'solutions', 'label' => 'Expertise'],
+        ['route' => 'about', 'label' => 'Studio'],
+        ['route' => 'careers', 'label' => 'Join'],
     ];
 @endphp
 

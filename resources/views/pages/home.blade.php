@@ -25,12 +25,12 @@
                     Book a consultation <span aria-hidden="true">→</span>
                 </a>
                 <a href="{{ route('services') }}" class="inline-flex items-center gap-2 rounded-full border border-hairline px-7 py-3.5 text-sm font-medium hover:border-foreground transition">
-                    Explore services
+                    View capabilities
                 </a>
             </div>
 
             <div class="mt-20 grid grid-cols-2 md:grid-cols-4 gap-px bg-hairline border border-hairline rounded-2xl overflow-hidden">
-                @foreach ([['80+', 'Products shipped'], ['12', 'Countries served'], ['98%', 'Client retention'], ['24/7', 'Delivery cadence']] as [$n, $l])
+                @foreach ([['80+', 'Builds shipped'], ['12', 'Countries served'], ['98%', 'Client retention'], ['24/7', 'Delivery cadence']] as [$n, $l])
                     <div class="bg-background p-6 md:p-8">
                         <div class="text-3xl md:text-4xl font-bold text-gradient-brand">{{ $n }}</div>
                         <div class="mt-2 text-xs uppercase tracking-widest text-muted-foreground">{{ $l }}</div>
@@ -43,7 +43,7 @@
     {{-- CAPABILITIES --}}
     <x-section>
         <x-section-header
-            eyebrow="What we do"
+            eyebrow="Capabilities"
             title="A single team for every layer of your product."
             description="From discovery to deployment, we operate as one integrated engineering partner — design, code, infrastructure, and intelligence under one roof."
         />

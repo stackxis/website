@@ -7,19 +7,19 @@
             </p>
         </div>
         <div>
-            <h4 class="text-xs uppercase tracking-widest text-muted-foreground">Company</h4>
+            <h4 class="text-xs uppercase tracking-widest text-muted-foreground">Studio</h4>
             <ul class="mt-4 space-y-2 text-sm">
-                <li><a href="{{ route('about') }}" class="hover:text-primary">About</a></li>
-                <li><a href="{{ route('careers') }}" class="hover:text-primary">Careers</a></li>
+                <li><a href="{{ route('about') }}" class="hover:text-primary">Studio</a></li>
+                <li><a href="{{ route('careers') }}" class="hover:text-primary">Join</a></li>
                 <li><a href="{{ route('contact') }}" class="hover:text-primary">Contact</a></li>
             </ul>
         </div>
         <div>
-            <h4 class="text-xs uppercase tracking-widest text-muted-foreground">Work</h4>
+            <h4 class="text-xs uppercase tracking-widest text-muted-foreground">Capabilities</h4>
             <ul class="mt-4 space-y-2 text-sm">
-                <li><a href="{{ route('services') }}" class="hover:text-primary">Services</a></li>
-                <li><a href="{{ route('solutions') }}" class="hover:text-primary">Solutions</a></li>
-                <li><a href="{{ route('portfolio') }}" class="hover:text-primary">Case studies</a></li>
+                <li><a href="{{ route('services') }}" class="hover:text-primary">Capabilities</a></li>
+                <li><a href="{{ route('solutions') }}" class="hover:text-primary">Expertise</a></li>
+                <li><a href="{{ route('portfolio') }}" class="hover:text-primary">Selected work</a></li>
             </ul>
         </div>
         <div>

@@ -2,9 +2,9 @@
 
 @section('content')
     <x-page-hero
-        eyebrow="Careers"
+        eyebrow="Join"
         title='Senior craft. <span class="text-gradient-brand">Real autonomy.</span> Work that ships.'
-        description="We're a small, deliberate team. We hire slowly, pay well, and protect focus. If that sounds like the studio you've been looking for, read on."
+        description="We're a small, deliberate studio. We hire slowly, pay well, and protect focus. If that sounds like the team you've been looking for, read on."
     />
 
     <x-section>
@@ -28,7 +28,7 @@
 
     <section class="border-t border-hairline bg-surface-muted">
         <div class="container-page py-24">
-            <x-section-header eyebrow="Open roles" title="We're hiring." />
+            <x-section-header eyebrow="Open roles" title="Come build with us." />
             <div class="mt-12 divide-y divide-hairline border-y border-hairline">
                 @foreach ([
                     ['Senior Full-Stack Engineer', 'Remote · Full-time', 'TypeScript, Node, React, Postgres'],

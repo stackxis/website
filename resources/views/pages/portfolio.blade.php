@@ -3,7 +3,7 @@
 @section('content')
     <x-page-hero
         eyebrow="Selected work"
-        title='Products that <span class="text-gradient-brand">earned</span> their place in production.'
+        title='Builds that <span class="text-gradient-brand">earned</span> their place in production.'
         description="A few examples from our recent engagements. Names withheld where partnerships require it — we'll walk through specifics on a call."
     />
 

@@ -18,24 +18,24 @@ class PageController extends Controller
     public function about(): View
     {
         return view('pages.about', [
-            'title' => 'About — Stackxis',
-            'description' => "We're a senior engineering studio building software that lasts. Learn our story, mission, and the values behind our work.",
+            'title' => 'Studio — Stackxis',
+            'description' => "The story behind Stackxis — our mission, values, and the engineering principles that guide every build.",
         ]);
     }
 
     public function services(): View
     {
         return view('pages.services', [
-            'title' => 'Services — Stackxis',
-            'description' => 'Product engineering, platform & cloud, applied AI, and design systems. Senior teams delivering production-grade software.',
+            'title' => 'Capabilities — Stackxis',
+            'description' => 'Product engineering, platform & cloud, applied AI, and design systems — senior teams delivering production-grade software.',
         ]);
     }
 
     public function solutions(): View
     {
         return view('pages.solutions', [
-            'title' => 'Solutions & Expertise — Stackxis',
-            'description' => 'Industries we serve and the technologies we specialize in — from fintech to healthcare, React to Kubernetes.',
+            'title' => 'Expertise — Stackxis',
+            'description' => 'Industries we know deeply and the technologies we reach for — from fintech to healthcare, React to Kubernetes.',
         ]);
     }
 
@@ -43,15 +43,15 @@ class PageController extends Controller
     {
         return view('pages.portfolio', [
             'title' => 'Case Studies — Stackxis',
-            'description' => 'A selection of products and platforms Stackxis has designed, built, and scaled with clients across industries.',
+            'description' => 'A selection of builds and platforms Stackxis has designed, engineered, and scaled with clients across industries.',
         ]);
     }
 
     public function careers(): View
     {
         return view('pages.careers', [
-            'title' => 'Careers — Stackxis',
-            'description' => 'Join a senior engineering studio that values craft, autonomy, and meaningful work. Current openings and how we hire.',
+            'title' => 'Join — Stackxis',
+            'description' => 'Join a senior engineering studio that values craft, autonomy, and meaningful work. Open roles and how we hire.',
         ]);
     }
 
