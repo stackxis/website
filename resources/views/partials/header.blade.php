@@ -12,7 +12,7 @@
 <header class="sticky top-0 z-50 border-b border-hairline bg-background/80 backdrop-blur-xl">
     <div class="container-page flex h-16 items-center justify-between gap-6">
         <a href="{{ route('home') }}" class="flex items-center gap-2 shrink-0">
-            <img src="{{ asset('images/stackxis-logo.svg') }}" alt="Stackxis" class="h-7 w-auto">
+            <img src="{{ asset('images/logo.png') }}" alt="Stackxis" class="h-9 w-auto">
         </a>
 
         <nav class="hidden lg:flex items-center gap-1">

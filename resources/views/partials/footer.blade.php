@@ -1,7 +1,7 @@
 <footer class="border-t border-hairline bg-surface-muted mt-24">
     <div class="container-page py-16 grid gap-12 md:grid-cols-[1.5fr_1fr_1fr_1fr]">
         <div>
-            <img src="{{ asset('images/stackxis-logo.svg') }}" alt="Stackxis" class="h-8 w-auto">
+            <img src="{{ asset('images/logo.png') }}" alt="Stackxis" class="h-10 w-auto">
             <p class="mt-4 text-sm text-muted-foreground max-w-xs">
                 Engineering studio building reliable software for ambitious teams.
             </p>

@@ -10,6 +10,10 @@
     <meta property="og:title" content="{{ $title ?? 'Stackxis' }}">
     <meta property="og:description" content="{{ $description ?? '' }}">
     <meta name="twitter:card" content="summary_large_image">
+    <meta property="og:image" content="{{ asset('images/logo.png') }}">
+    <meta name="twitter:image" content="{{ asset('images/logo.png') }}">
+    <link rel="icon" type="image/png" href="{{ asset('images/logo.png') }}">
+    <link rel="apple-touch-icon" href="{{ asset('images/logo.png') }}">
     <link rel="canonical" href="{{ url()->current() }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
