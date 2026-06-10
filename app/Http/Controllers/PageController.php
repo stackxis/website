@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\View\View;
 
 class PageController extends Controller
@@ -19,11 +19,11 @@ class PageController extends Controller
     {
         return view('pages.about', [
             'title' => 'About — Stackxis',
-            'description' => "Who we are, what we stand for, and the engineering principles behind every Stackxis build.",
+            'description' => 'Who we are, what we stand for, and the engineering principles behind every Stackxis build.',
         ]);
     }
 
-    public function services(): View
+    public function capabilities(): View
     {
         return view('pages.services', [
             'title' => 'Capabilities — Stackxis',
@@ -31,7 +31,7 @@ class PageController extends Controller
         ]);
     }
 
-    public function solutions(): View
+    public function expertise(): View
     {
         return view('pages.solutions', [
             'title' => 'Expertise — Stackxis',
@@ -39,15 +39,15 @@ class PageController extends Controller
         ]);
     }
 
-    public function portfolio(): View
+    public function work(): View
     {
         return view('pages.portfolio', [
-            'title' => 'Case Studies — Stackxis',
+            'title' => 'Selected Work — Stackxis',
             'description' => 'A selection of builds and platforms Stackxis has designed, engineered, and scaled with clients across industries.',
         ]);
     }
 
-    public function careers(): View
+    public function join(): View
     {
         return view('pages.careers', [
             'title' => 'Join — Stackxis',
@@ -63,13 +63,31 @@ class PageController extends Controller
         ]);
     }
 
-    public function sitemap(): \Illuminate\Http\Response
+    public function sitemap(): Response
     {
-        $paths = ['/', '/about', '/services', '/solutions', '/portfolio', '/careers', '/contact'];
-        $baseUrl = config('app.url');
+        $pages = [
+            ['route' => 'home', 'priority' => '1.0', 'changefreq' => 'weekly'],
+            ['route' => 'capabilities', 'priority' => '0.9', 'changefreq' => 'weekly'],
+            ['route' => 'expertise', 'priority' => '0.9', 'changefreq' => 'weekly'],
+            ['route' => 'about', 'priority' => '0.8', 'changefreq' => 'monthly'],
+            ['route' => 'join', 'priority' => '0.8', 'changefreq' => 'weekly'],
+            ['route' => 'work', 'priority' => '0.7', 'changefreq' => 'monthly'],
+            ['route' => 'contact', 'priority' => '0.7', 'changefreq' => 'monthly'],
+        ];
 
-        $urls = collect($paths)->map(function ($path) use ($baseUrl) {
-            return '  <url><loc>'.rtrim($baseUrl, '/').$path.'</loc><changefreq>weekly</changefreq></url>';
+        $lastmod = now()->toDateString();
+
+        $urls = collect($pages)->map(function (array $page) use ($lastmod) {
+            $loc = e(route($page['route']));
+
+            return implode("\n", [
+                '  <url>',
+                "    <loc>{$loc}</loc>",
+                "    <lastmod>{$lastmod}</lastmod>",
+                "    <changefreq>{$page['changefreq']}</changefreq>",
+                "    <priority>{$page['priority']}</priority>",
+                '  </url>',
+            ]);
         })->join("\n");
 
         $xml = '<?xml version="1.0" encoding="UTF-8"?>'."\n"

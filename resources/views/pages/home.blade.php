@@ -8,7 +8,7 @@
         <div class="container-page relative pt-28 pb-24 md:pt-40 md:pb-36">
             <div class="flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-brand-azure font-medium animate-rise">
                 <span class="h-1.5 w-1.5 rounded-full bg-brand-azure"></span>
-                Engineering studio · Est. 2021
+                Engineering studio · Est. 2025
             </div>
             <h1 class="mt-6 text-5xl md:text-7xl lg:text-8xl font-bold leading-[0.98] max-w-5xl animate-rise">
                 Software that
@@ -24,7 +24,7 @@
                 <a href="{{ route('contact') }}" class="inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-medium text-primary-foreground hover:opacity-90 transition">
                     Book a consultation <span aria-hidden="true">→</span>
                 </a>
-                <a href="{{ route('services') }}" class="inline-flex items-center gap-2 rounded-full border border-hairline px-7 py-3.5 text-sm font-medium hover:border-foreground transition">
+                <a href="{{ route('capabilities') }}" class="inline-flex items-center gap-2 rounded-full border border-hairline px-7 py-3.5 text-sm font-medium hover:border-foreground transition">
                     View capabilities
                 </a>
             </div>
