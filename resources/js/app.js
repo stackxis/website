@@ -4,7 +4,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (toggle && menu) {
         toggle.addEventListener('click', () => {
-            menu.classList.toggle('hidden');
+            const isHidden = menu.classList.toggle('hidden');
+            toggle.setAttribute('aria-expanded', isHidden ? 'false' : 'true');
         });
     }
 });
