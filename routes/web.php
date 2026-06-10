@@ -14,17 +14,6 @@ Route::get('/contact', [PageController::class, 'contact'])->name('contact');
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 Route::get('/sitemap.xml', [PageController::class, 'sitemap'])->name('sitemap');
 
-Route::get('/robots.txt', function () {
-    $content = implode("\n", [
-        'User-agent: *',
-        'Allow: /',
-        '',
-        'Sitemap: '.route('sitemap'),
-    ]);
-
-    return response($content, 200, ['Content-Type' => 'text/plain']);
-})->name('robots');
-
 Route::redirect('/services', '/capabilities', 301);
 Route::redirect('/solutions', '/expertise', 301);
 Route::redirect('/careers', '/join', 301);
