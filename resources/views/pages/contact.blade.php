@@ -14,8 +14,8 @@
                 <p class="mt-3 text-xl font-medium">hello@stackxis.com</p>
             </div>
             <div>
-                <h3 class="text-xs uppercase tracking-[0.2em] text-brand-azure font-medium">Engagements</h3>
-                <p class="mt-3 text-xl font-medium">new@stackxis.com</p>
+                <h3 class="text-xs uppercase tracking-[0.2em] text-brand-azure font-medium">Call</h3>
+                <p class="mt-3 text-xl font-medium"><a href="tel:+94740190519">+94 74 019 0519</a></p>
             </div>
             <div>
                 <h3 class="text-xs uppercase tracking-[0.2em] text-brand-azure font-medium">Where we work</h3>
