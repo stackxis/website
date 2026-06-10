@@ -14,13 +14,13 @@
                 ['Healthcare', 'Clinical operations workspace', 'Built a multi-tenant SaaS for clinical operations — workflow engine, audit log, and HL7/FHIR integrations.', [['18 wks', 'MVP to launch'], ['3', 'Hospital systems live'], ['A+', 'Security audit']]],
                 ['SaaS', 'AI-powered support copilot', 'Designed and shipped an LLM-grounded agent for a B2B support team — including RAG, evaluation, and observability.', [['42%', 'Tickets auto-resolved'], ['6×', 'First-response time'], ['12 wks', 'From kickoff']]],
                 ['Logistics', 'Fleet optimization engine', 'Routing and dispatch system combining live telemetry, ML demand forecasting, and a driver-facing mobile app.', [['−23%', 'Fuel cost'], ['+31%', 'On-time rate'], ['8 mo', 'Payback']]],
-            ] as [$sector, $title, $summary, $metrics])
+            ] as [$sector, $project, $summary, $metrics])
                 <article class="bg-background p-8 md:p-12 grid lg:grid-cols-[1fr_2fr_1.2fr] gap-8 items-start">
                     <div>
                         <span class="inline-block rounded-full border border-hairline px-3 py-1 text-xs uppercase tracking-widest text-muted-foreground">{{ $sector }}</span>
                     </div>
                     <div>
-                        <h3 class="text-2xl md:text-3xl font-bold leading-tight">{{ $title }}</h3>
+                        <h3 class="text-2xl md:text-3xl font-bold leading-tight">{{ $project }}</h3>
                         <p class="mt-3 text-muted-foreground">{{ $summary }}</p>
                     </div>
                     <dl class="grid grid-cols-3 gap-4">

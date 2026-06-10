@@ -35,9 +35,9 @@
                     ['Platform / DevOps Engineer', 'Remote · Full-time', 'AWS, Kubernetes, Terraform'],
                     ['AI Engineer', 'Remote · Full-time', 'Python, LLMs, RAG, evaluation'],
                     ['Product Designer', 'Remote · Full-time', 'Systems thinking, prototyping'],
-                ] as [$title, $meta, $stack])
+                ] as [$role, $meta, $stack])
                     <a href="{{ route('contact') }}" class="grid grid-cols-1 md:grid-cols-[1.5fr_1fr_1fr_auto] gap-4 py-6 items-center hover:bg-background transition px-2">
-                        <span class="text-xl font-semibold">{{ $title }}</span>
+                        <span class="text-xl font-semibold">{{ $role }}</span>
                         <span class="text-sm text-muted-foreground">{{ $meta }}</span>
                         <span class="text-sm text-muted-foreground">{{ $stack }}</span>
                         <span class="text-brand-azure">Apply →</span>

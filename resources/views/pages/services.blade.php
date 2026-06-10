@@ -16,12 +16,12 @@
                 ['04', 'Design Systems & UX', 'Interface design and component libraries that compound across products and teams.', ['Design systems & tokens', 'Product UX design', 'Accessibility audits', 'Prototyping & user testing', 'Brand-aligned interfaces']],
                 ['05', 'Modernization & Rescue', 'Legacy systems untangled, rewritten, or wrapped — without halting your business.', ['Legacy migration', 'Monolith decomposition', 'Performance re-engineering', 'Security hardening', 'Failed-project recovery']],
                 ['06', 'Embedded Teams', 'Senior engineers embedded with your team for sustained capacity, knowledge transfer, and roadmap execution.', ['Staff augmentation', 'Tech leadership on demand', 'Architecture review boards', 'Mentorship & training', 'Long-term partnerships']],
-            ] as [$n, $title, $desc, $items])
+            ] as [$n, $capability, $desc, $items])
                 <article class="bg-background p-8 md:p-12">
                     <div class="flex items-baseline justify-between">
                         <span class="text-xs tracking-widest text-brand-azure">{{ $n }}</span>
                     </div>
-                    <h2 class="mt-6 text-2xl md:text-3xl font-bold">{{ $title }}</h2>
+                    <h2 class="mt-6 text-2xl md:text-3xl font-bold">{{ $capability }}</h2>
                     <p class="mt-3 text-muted-foreground">{{ $desc }}</p>
                     <ul class="mt-6 space-y-2.5">
                         @foreach ($items as $item)
