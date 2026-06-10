@@ -2,7 +2,7 @@
 
 @section('content')
     <x-page-hero
-        eyebrow="Story"
+        eyebrow="About"
         title='Engineers who believe software should <span class="text-gradient-brand">behave</span>.'
         description="We exist for teams who care about how their product is built — not just whether it ships. Reliability, clarity, and craft are non-negotiable."
     />

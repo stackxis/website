@@ -3,7 +3,7 @@
         ['route' => 'home', 'label' => 'Home', 'exact' => true],
         ['route' => 'services', 'label' => 'Capabilities'],
         ['route' => 'solutions', 'label' => 'Expertise'],
-        ['route' => 'about', 'label' => 'Story'],
+        ['route' => 'about', 'label' => 'About'],
         ['route' => 'careers', 'label' => 'Join'],
     ];
 @endphp

@@ -7,9 +7,9 @@
             </p>
         </div>
         <div>
-            <h4 class="text-xs uppercase tracking-widest text-muted-foreground">Story</h4>
+            <h4 class="text-xs uppercase tracking-widest text-muted-foreground">About</h4>
             <ul class="mt-4 space-y-2 text-sm">
-                <li><a href="{{ route('about') }}" class="hover:text-primary">Story</a></li>
+                <li><a href="{{ route('about') }}" class="hover:text-primary">About</a></li>
                 <li><a href="{{ route('careers') }}" class="hover:text-primary">Join</a></li>
                 <li><a href="{{ route('contact') }}" class="hover:text-primary">Contact</a></li>
             </ul>

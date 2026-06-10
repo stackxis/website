@@ -18,8 +18,8 @@ class PageController extends Controller
     public function about(): View
     {
         return view('pages.about', [
-            'title' => 'Story — Stackxis',
-            'description' => "The story behind Stackxis — our mission, values, and the engineering principles that guide every build.",
+            'title' => 'About — Stackxis',
+            'description' => "Who we are, what we stand for, and the engineering principles behind every Stackxis build.",
         ]);
     }
 
