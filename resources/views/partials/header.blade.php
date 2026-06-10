@@ -8,7 +8,7 @@
     ];
 @endphp
 
-<header class="site-header sticky top-0 z-50">
+<header class="site-header">
     <div class="container-page site-header-wrap">
         <div class="site-header-bar">
             <a href="{{ route('home') }}" class="site-header-logo">

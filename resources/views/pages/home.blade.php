@@ -5,7 +5,7 @@
     <section class="relative overflow-hidden border-b border-hairline">
         <div class="absolute inset-0 hairline-grid opacity-[0.35] pointer-events-none"></div>
         <div class="absolute -top-32 -right-32 h-[480px] w-[480px] rounded-full bg-brand-sky/20 blur-3xl pointer-events-none"></div>
-        <div class="container-page relative py-24 md:py-36">
+        <div class="container-page relative pt-28 pb-24 md:pt-40 md:pb-36">
             <div class="flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-brand-azure font-medium animate-rise">
                 <span class="h-1.5 w-1.5 rounded-full bg-brand-azure"></span>
                 Engineering studio · Est. 2021
