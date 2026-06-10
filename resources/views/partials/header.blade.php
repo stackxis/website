@@ -1,9 +1,9 @@
 @php
     $links = [
-        ['route' => 'home', 'label' => 'Start', 'exact' => true],
+        ['route' => 'home', 'label' => 'Home', 'exact' => true],
         ['route' => 'services', 'label' => 'Capabilities'],
         ['route' => 'solutions', 'label' => 'Expertise'],
-        ['route' => 'about', 'label' => 'Studio'],
+        ['route' => 'about', 'label' => 'Story'],
         ['route' => 'careers', 'label' => 'Join'],
     ];
 @endphp

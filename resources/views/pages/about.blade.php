@@ -2,7 +2,7 @@
 
 @section('content')
     <x-page-hero
-        eyebrow="Studio"
+        eyebrow="Story"
         title='Engineers who believe software should <span class="text-gradient-brand">behave</span>.'
         description="We exist for teams who care about how their product is built — not just whether it ships. Reliability, clarity, and craft are non-negotiable."
     />
@@ -47,7 +47,7 @@
 
     <x-section>
         <div class="grid lg:grid-cols-[1fr_1.5fr] gap-12">
-            <x-section-header eyebrow="The studio" title="Started by engineers tired of seeing software fail in production." />
+            <x-section-header eyebrow="How we began" title="Started by engineers tired of seeing software fail in production." />
             <div class="space-y-6 text-lg text-muted-foreground">
                 <p>
                     Stackxis began with a simple observation: most software projects don't fail because of technology — they fail because of decisions. Wrong scope, wrong team shape, wrong trade-offs at the wrong moment.
