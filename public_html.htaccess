@@ -1,0 +1,11 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Serve files that exist in Laravel public/
+    RewriteCond %{DOCUMENT_ROOT}/stackxis/public%{REQUEST_URI} -f [OR]
+    RewriteCond %{DOCUMENT_ROOT}/stackxis/public%{REQUEST_URI} -d
+    RewriteRule ^(.*)$ stackxis/public/$1 [L]
+
+    # Everything else goes through Laravel
+    RewriteRule ^(.*)$ stackxis/public/index.php [L]
+</IfModule>

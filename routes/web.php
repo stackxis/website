@@ -1,8 +1,14 @@
 <?php
 
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\FaviconController;
 use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
+
+Route::get('/favicon.ico', [FaviconController::class, 'root']);
+Route::get('/images/favicons/site.webmanifest', [FaviconController::class, 'manifest'])->name('manifest');
+Route::get('/images/favicons/{file}', [FaviconController::class, 'show'])
+    ->where('file', '[a-zA-Z0-9.-]+');
 
 Route::get('/', [PageController::class, 'home'])->name('home');
 Route::get('/capabilities', [PageController::class, 'capabilities'])->name('capabilities');
