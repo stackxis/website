@@ -1,0 +1,150 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@theme inline {
+    --radius-sm: calc(var(--radius) - 4px);
+    --radius-md: calc(var(--radius) - 2px);
+    --radius-lg: var(--radius);
+    --radius-xl: calc(var(--radius) + 4px);
+    --radius-2xl: calc(var(--radius) + 8px);
+
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --color-card: var(--card);
+    --color-card-foreground: var(--card-foreground);
+    --color-popover: var(--popover);
+    --color-popover-foreground: var(--popover-foreground);
+    --color-primary: var(--primary);
+    --color-primary-foreground: var(--primary-foreground);
+    --color-secondary: var(--secondary);
+    --color-secondary-foreground: var(--secondary-foreground);
+    --color-muted: var(--muted);
+    --color-muted-foreground: var(--muted-foreground);
+    --color-accent: var(--accent);
+    --color-accent-foreground: var(--accent-foreground);
+    --color-destructive: var(--destructive);
+    --color-destructive-foreground: var(--destructive-foreground);
+    --color-border: var(--border);
+    --color-input: var(--input);
+    --color-ring: var(--ring);
+
+    --color-brand-navy: var(--brand-navy);
+    --color-brand-blue: var(--brand-blue);
+    --color-brand-azure: var(--brand-azure);
+    --color-brand-sky: var(--brand-sky);
+    --color-ink: var(--ink);
+    --color-surface: var(--surface);
+    --color-surface-muted: var(--surface-muted);
+    --color-hairline: var(--hairline);
+
+    --font-display: 'Space Grotesk', system-ui, sans-serif;
+    --font-sans: 'Space Grotesk', system-ui, sans-serif;
+}
+
+:root {
+    --radius: 0.75rem;
+
+    --brand-navy: oklch(0.32 0.12 252);
+    --brand-blue: oklch(0.52 0.18 250);
+    --brand-azure: oklch(0.62 0.18 245);
+    --brand-sky: oklch(0.78 0.12 235);
+
+    --ink: oklch(0.16 0.02 250);
+    --surface: oklch(1 0 0);
+    --surface-muted: oklch(0.975 0.005 250);
+    --hairline: oklch(0.91 0.01 250);
+
+    --background: var(--surface);
+    --foreground: var(--ink);
+    --card: var(--surface);
+    --card-foreground: var(--ink);
+    --popover: var(--surface);
+    --popover-foreground: var(--ink);
+    --primary: var(--brand-navy);
+    --primary-foreground: oklch(0.99 0 0);
+    --secondary: var(--surface-muted);
+    --secondary-foreground: var(--ink);
+    --muted: var(--surface-muted);
+    --muted-foreground: oklch(0.5 0.02 250);
+    --accent: var(--brand-azure);
+    --accent-foreground: oklch(0.99 0 0);
+    --destructive: oklch(0.58 0.22 27);
+    --destructive-foreground: oklch(0.99 0 0);
+    --border: var(--hairline);
+    --input: var(--hairline);
+    --ring: var(--brand-blue);
+}
+
+@layer base {
+    * {
+        border-color: var(--color-border);
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        background-color: var(--color-background);
+        color: var(--color-foreground);
+        font-family: var(--font-sans);
+        font-feature-settings: 'ss01', 'cv11';
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+        font-family: var(--font-display);
+        letter-spacing: -0.02em;
+        font-weight: 700;
+    }
+}
+
+@utility container-page {
+    margin-inline: auto;
+    width: 100%;
+    max-width: 80rem;
+    padding-inline: 1.5rem;
+
+    @media (min-width: 768px) {
+        padding-inline: 2.5rem;
+    }
+}
+
+@utility hairline-grid {
+    background-image:
+        linear-gradient(to right, var(--hairline) 1px, transparent 1px),
+        linear-gradient(to bottom, var(--hairline) 1px, transparent 1px);
+    background-size: 64px 64px;
+}
+
+@utility text-gradient-brand {
+    background: linear-gradient(120deg, var(--brand-navy), var(--brand-azure) 60%, var(--brand-sky));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+@keyframes rise {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@utility animate-rise {
+    animation: rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
