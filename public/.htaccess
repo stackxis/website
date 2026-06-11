@@ -7,8 +7,6 @@ AddType application/manifest+json .webmanifest
 
     RewriteEngine On
 
-    RewriteRule ^favicon\.ico$ images/favicons/favicon.ico [L]
-
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .
     RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
