@@ -89,52 +89,62 @@
         </section>
     @endif
 
-    {{-- Sticky filter --}}
-    <div class="work-filter-bar" id="work-filter-bar">
-        <div class="container-page">
-            <div class="work-filter-bar__track" role="tablist" aria-label="Filter deployments by category">
-                @foreach ($filters as $i => $filter)
-                    <button
-                        type="button"
-                        role="tab"
-                        class="work-filter-btn {{ $i === 0 ? 'work-filter-btn--active' : '' }}"
-                        data-filter="{{ $filter['id'] }}"
-                        aria-selected="{{ $i === 0 ? 'true' : 'false' }}"
-                    >
-                        {{ $filter['label'] }}
-                    </button>
-                @endforeach
+    @if ($deployments->isNotEmpty())
+        {{-- Sticky filter --}}
+        <div class="work-filter-bar" id="work-filter-bar">
+            <div class="container-page">
+                <div class="work-filter-bar__track" role="tablist" aria-label="Filter deployments by category">
+                    @foreach ($filters as $i => $filter)
+                        <button
+                            type="button"
+                            role="tab"
+                            class="work-filter-btn {{ $i === 0 ? 'work-filter-btn--active' : '' }}"
+                            data-filter="{{ $filter['id'] }}"
+                            aria-selected="{{ $i === 0 ? 'true' : 'false' }}"
+                        >
+                            {{ $filter['label'] }}
+                        </button>
+                    @endforeach
+                </div>
             </div>
         </div>
-    </div>
 
-    {{-- Engineering grid --}}
-    <x-section id="deployments-grid">
-        <div class="grid md:grid-cols-2 gap-5 md:gap-6" id="portfolio-cards">
-            @foreach ($deployments as $card)
-                @php
-                    $cardData = $card->toCardArray();
-                @endphp
-                <article
-                    class="portfolio-card"
-                    data-categories="{{ implode(' ', $cardData['categories']) }}"
-                >
-                    <div class="portfolio-card__meta">
-                        <span>{{ $cardData['type'] }}</span>
-                        <span>{{ $cardData['year'] }}</span>
-                    </div>
-                    <p class="text-xs uppercase tracking-widest text-brand-sky">{{ $cardData['industry'] }}</p>
-                    <h3 class="portfolio-card__metric">{{ $cardData['metric'] }}</h3>
-                    <p class="portfolio-card__summary">{{ $cardData['summary'] }}</p>
-                    <div class="portfolio-card__stack">
-                        @foreach ($cardData['stack'] as $tech)
-                            <span class="portfolio-card__tag">{{ $tech }}</span>
-                        @endforeach
-                    </div>
-                </article>
-            @endforeach
-        </div>
-    </x-section>
+        {{-- Engineering grid --}}
+        <x-section id="deployments-grid">
+            <div class="grid md:grid-cols-2 gap-5 md:gap-6" id="portfolio-cards">
+                @foreach ($deployments as $card)
+                    @php
+                        $cardData = $card->toCardArray();
+                    @endphp
+                    <article
+                        class="portfolio-card"
+                        data-categories="{{ implode(' ', $cardData['categories']) }}"
+                    >
+                        <div class="portfolio-card__meta">
+                            <span>{{ $cardData['type'] }}</span>
+                            <span>{{ $cardData['year'] }}</span>
+                        </div>
+                        <p class="text-xs uppercase tracking-widest text-brand-sky">{{ $cardData['industry'] }}</p>
+                        <h3 class="portfolio-card__metric">{{ $cardData['metric'] }}</h3>
+                        <p class="portfolio-card__summary">{{ $cardData['summary'] }}</p>
+                        <div class="portfolio-card__stack">
+                            @foreach ($cardData['stack'] as $tech)
+                                <span class="portfolio-card__tag">{{ $tech }}</span>
+                            @endforeach
+                        </div>
+                    </article>
+                @endforeach
+            </div>
+        </x-section>
+    @else
+        <x-section id="deployments-grid">
+            <x-empty-state
+                icon="fa-folder-open"
+                title="No deployments yet"
+                message="There are no case studies currently available. We're working on new projects — check back soon."
+            />
+        </x-section>
+    @endif
 
     {{-- How we measure success --}}
     <section class="work-success-strip border-t border-hairline">

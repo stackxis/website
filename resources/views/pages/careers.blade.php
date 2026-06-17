@@ -126,15 +126,25 @@
     <section id="open-roles" class="border-t border-hairline scroll-mt-28">
         <div class="container-page py-20 md:py-28">
             <x-section-header title="Open remote engineering roles" />
-            <div class="mt-16 grid md:grid-cols-3 gap-6">
-                @foreach ($jobs as $job)
-                    <a href="{{ $job->apply_url }}" class="group flex flex-col rounded-2xl border border-hairline bg-background p-8 hover:border-brand-azure/40 hover:bg-surface-muted transition-colors">
-                        <h3 class="text-xl font-semibold group-hover:text-brand-azure transition-colors">{{ $job->title }}</h3>
-                        <p class="mt-2 text-sm text-brand-azure">{{ $job->tags }}</p>
-                        <p class="mt-4 text-muted-foreground flex-1">{{ $job->description }}</p>
-                        <span class="mt-6 text-sm font-medium text-brand-azure">Apply via Email <span aria-hidden="true">→</span></span>
-                    </a>
-                @endforeach
+            <div class="mt-16">
+                @if ($jobs->isNotEmpty())
+                    <div class="grid md:grid-cols-3 gap-6">
+                        @foreach ($jobs as $job)
+                            <a href="{{ $job->apply_url }}" class="group flex flex-col rounded-2xl border border-hairline bg-background p-8 hover:border-brand-azure/40 hover:bg-surface-muted transition-colors">
+                                <h3 class="text-xl font-semibold group-hover:text-brand-azure transition-colors">{{ $job->title }}</h3>
+                                <p class="mt-2 text-sm text-brand-azure">{{ $job->tags }}</p>
+                                <p class="mt-4 text-muted-foreground flex-1">{{ $job->description }}</p>
+                                <span class="mt-6 text-sm font-medium text-brand-azure">Apply via Email <span aria-hidden="true">→</span></span>
+                            </a>
+                        @endforeach
+                    </div>
+                @else
+                    <x-empty-state
+                        icon="fa-briefcase"
+                        title="No open roles"
+                        message="There are no open positions currently available. We're always interested in meeting great engineers — reach out via email below."
+                    />
+                @endif
             </div>
         </div>
     </section>

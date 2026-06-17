@@ -70,8 +70,10 @@
                     @yield('content')
                 </div>
             @else
-                @include('admin.partials.flash')
-                @yield('content')
+                <div class="admin-guest">
+                    @include('admin.partials.flash')
+                    @yield('content')
+                </div>
             @endauth
         </main>
     </div>
