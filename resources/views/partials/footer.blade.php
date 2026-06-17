@@ -72,8 +72,7 @@
                     </a>
                 </li>
                 <li>
-
-                    <a href="{{ route('join') }}" class="hover:text-primary">
+                    <a href="{{ route('blog') }}" class="hover:text-primary">
                         Blog
                     </a>
                 </li>
@@ -127,9 +126,21 @@
             <h4 class="text-xs uppercase tracking-widest text-muted-foreground">Legal</h4>
 
             <ul class="mt-4 space-y-2 text-sm">
-                <li>Cookie policy</li>
-                <li>Privacy Policy</li>
-                <li>Terms & Conditions</li>
+                <li>
+                    <a href="{{ route('cookie-policy') }}" class="hover:text-primary">
+                        Cookie policy
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('privacy-policy') }}" class="hover:text-primary">
+                        Privacy Policy
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('terms-and-conditions') }}" class="hover:text-primary">
+                        Terms & Conditions
+                    </a>
+                </li>
             </ul>
 
         </div>

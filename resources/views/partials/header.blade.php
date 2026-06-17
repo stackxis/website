@@ -5,7 +5,7 @@
         ['route' => 'capabilities', 'label' => 'Capabilities'],
         ['route' => 'work', 'label' => 'Work'],
         ['route' => 'join', 'label' => 'Careers'],
-        ['route' => 'contact', 'label' => 'Contact'],
+        // ['route' => 'contact', 'label' => 'Contact'],
     ];
 @endphp
 

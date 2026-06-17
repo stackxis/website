@@ -4,6 +4,7 @@
     'description',
     'ctaText' => null,
     'ctaHref' => null,
+    'ctaIcon' => '→',
 ])
 
 <section class="relative border-b border-hairline">
@@ -15,7 +16,7 @@
         @if ($ctaText && $ctaHref)
             <a href="{{ $ctaHref }}"
                 class="mt-10 inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-medium text-primary-foreground hover:opacity-90 transition">
-                {{ $ctaText }} <span aria-hidden="true">→</span>
+                {{ $ctaText }} <span aria-hidden="true">{{ $ctaIcon }}</span>
             </a>
         @endif
     </div>
