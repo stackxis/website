@@ -11,8 +11,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
-<body class="bg-surface-muted text-foreground font-sans antialiased">
-    <div class="admin-shell min-h-screen">
+<body class="admin-body {{ auth()->check() ? 'admin-body--auth' : 'admin-body--guest' }}">
+    <div class="admin-shell {{ auth()->check() ? 'admin-shell--auth' : 'admin-shell--guest' }}">
         @auth
             <aside class="admin-sidebar">
                 <div class="admin-sidebar__brand">
@@ -59,17 +59,20 @@
             @auth
                 <header class="admin-topbar">
                     <div>
-                        <p class="text-xs uppercase tracking-widest text-muted-foreground">Content management</p>
-                        <h1 class="text-2xl font-bold">@yield('heading')</h1>
+                        <p class="admin-topbar__eyebrow">Content management</p>
+                        <h1 class="admin-topbar__title">@yield('heading')</h1>
                     </div>
                     @yield('actions')
                 </header>
-            @endauth
 
-            <div class="admin-content">
+                <div class="admin-content">
+                    @include('admin.partials.flash')
+                    @yield('content')
+                </div>
+            @else
                 @include('admin.partials.flash')
                 @yield('content')
-            </div>
+            @endauth
         </main>
     </div>
 </body>

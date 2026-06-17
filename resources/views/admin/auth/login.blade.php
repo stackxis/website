@@ -5,14 +5,14 @@
 @section('content')
     <div class="admin-login">
         <div class="admin-login__card">
-            <p class="text-xs uppercase tracking-widest text-brand-azure font-medium">Stackxis Admin</p>
-            <h1 class="mt-3 text-3xl font-bold">Sign in</h1>
-            <p class="mt-2 text-muted-foreground">Manage blog posts, job listings, and portfolio content.</p>
+            <p class="admin-login__eyebrow">Stackxis Admin</p>
+            <h1 class="admin-login__title">Sign in</h1>
+            <p class="admin-login__lead">Manage blog posts, job listings, and portfolio content.</p>
 
-            <form method="POST" action="{{ route('admin.login.submit') }}" class="mt-8 space-y-5">
+            <form method="POST" action="{{ route('admin.login.submit') }}" class="admin-login__form">
                 @csrf
 
-                <div>
+                <div class="admin-field">
                     <label for="email" class="admin-label">Email</label>
                     <input
                         id="email"
@@ -25,7 +25,7 @@
                     >
                 </div>
 
-                <div>
+                <div class="admin-field">
                     <label for="password" class="admin-label">Password</label>
                     <input
                         id="password"
@@ -36,12 +36,12 @@
                     >
                 </div>
 
-                <label class="inline-flex items-center gap-2 text-sm text-muted-foreground">
-                    <input type="checkbox" name="remember" value="1" class="rounded border-hairline" {{ old('remember') ? 'checked' : '' }}>
-                    Remember me
+                <label class="admin-checkbox">
+                    <input type="checkbox" name="remember" value="1" {{ old('remember') ? 'checked' : '' }}>
+                    <span>Remember me</span>
                 </label>
 
-                <button type="submit" class="admin-btn admin-btn--primary w-full">
+                <button type="submit" class="admin-btn admin-btn--primary admin-btn--block">
                     Sign in
                 </button>
             </form>

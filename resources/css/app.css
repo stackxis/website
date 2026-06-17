@@ -684,15 +684,33 @@
 }
 
 /* Admin panel */
+.admin-body {
+    background: var(--surface-muted);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+}
+
 .admin-shell {
-    display: grid;
     min-height: 100vh;
 }
 
+.admin-shell--auth {
+    display: grid;
+}
+
 @media (min-width: 1024px) {
-    .admin-shell {
+    .admin-shell--auth {
         grid-template-columns: 16rem 1fr;
     }
+}
+
+.admin-shell--guest {
+    display: block;
+}
+
+.admin-body--guest .admin-main {
+    min-height: 100vh;
 }
 
 .admin-sidebar {
@@ -762,6 +780,20 @@
     padding: 1.5rem 1.5rem 0;
 }
 
+.admin-topbar__eyebrow {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted-foreground);
+}
+
+.admin-topbar__title {
+    margin-top: 0.25rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
 .admin-content {
     padding: 1.5rem;
 }
@@ -789,6 +821,53 @@
     background: var(--background);
     padding: 2rem;
     box-shadow: 0 24px 64px oklch(0.16 0.02 250 / 0.08);
+}
+
+.admin-login__eyebrow {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 500;
+    color: var(--brand-azure);
+}
+
+.admin-login__title {
+    margin-top: 0.75rem;
+    font-size: 1.875rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.admin-login__lead {
+    margin-top: 0.5rem;
+    color: var(--muted-foreground);
+    line-height: 1.6;
+}
+
+.admin-login__form {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.admin-field {
+    display: flex;
+    flex-direction: column;
+}
+
+.admin-checkbox {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    color: var(--muted-foreground);
+    cursor: pointer;
+}
+
+.admin-body--guest .admin-flash {
+    max-width: 28rem;
+    margin: 1.5rem auto 0;
 }
 
 .admin-label {
@@ -842,6 +921,10 @@
     border-color: var(--hairline);
     background: var(--background);
     color: var(--foreground);
+}
+
+.admin-btn--block {
+    width: 100%;
 }
 
 .admin-flash {
