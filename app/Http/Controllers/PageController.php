@@ -18,16 +18,39 @@ class PageController extends Controller
     public function about(): View
     {
         return view('pages.about', [
-            'title' => 'About — Stackxis',
-            'description' => 'Who we are, what we stand for, and the engineering principles behind every Stackxis build.',
+            'title' => 'About Stackxis — Remote-First Software Development Company',
+            'description' => 'A senior software engineering studio built by developers, for ambitious teams. Remote-first custom software, cloud ERPs, and enterprise platforms — engineered for reliability.',
+            'founders' => [
+                [
+                    'name' => 'Founder Name',
+                    'role' => 'Co-Founder / Engineering Lead',
+                    'bio' => 'Senior full-stack engineer with a decade of experience architecting production systems across fintech and SaaS.',
+                    'linkedin' => '#',
+                    'initials' => 'FN',
+                ],
+                [
+                    'name' => 'Founder Name',
+                    'role' => 'Co-Founder / Systems Architect',
+                    'bio' => 'Specializes in cloud-native infrastructure, distributed systems, and legacy platform modernization at enterprise scale.',
+                    'linkedin' => '#',
+                    'initials' => 'FN',
+                ],
+                [
+                    'name' => 'Founder Name',
+                    'role' => 'Co-Founder / Product Lead',
+                    'bio' => 'Bridges technical architecture and product strategy — shipping MVPs to multi-tenant platforms for funded startups and operators.',
+                    'linkedin' => '#',
+                    'initials' => 'FN',
+                ],
+            ],
         ]);
     }
 
     public function capabilities(): View
     {
         return view('pages.services', [
-            'title' => 'Capabilities — Stackxis',
-            'description' => 'Product engineering, platform & cloud, applied AI, and design systems — senior teams delivering production-grade software.',
+            'title' => 'End-to-End Software Development Services for B2B — Stackxis',
+            'description' => 'Custom software engineering, ERP & POS development, cloud infrastructure, applied AI, and B2B digital marketing — delivered by senior-only engineers.',
         ]);
     }
 

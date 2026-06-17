@@ -80,62 +80,96 @@
 
         @include('partials.footer')
 
-        {{-- Scroll to Top Button --}}
-        <button
-            id="scrollToTop"
-            onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
-            aria-label="Back to top"
+        {{-- Floating Action Buttons --}}
+        <div
             style="
-                display: none;
                 position: fixed;
                 bottom: 2rem;
                 right: 2rem;
                 z-index: 999;
-                width: 55px;
-                height: 55px;
-                border-radius: 50%;
-                background-color: #1a3a6e;
-                color: #fff;
-                border: none;
-                cursor: pointer;
-                box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-                transition: opacity 0.3s, transform 0.3s;
+                display: flex;
+                flex-direction: column;
+                gap: 0.75rem;
                 align-items: center;
-                justify-content: center;
             ">
-            <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.5"
-                stroke-linecap="round"
-                stroke-linejoin="round">
-                <polyline points="18 15 12 9 6 15" />
-            </svg>
-        </button>
+            <a
+                href="https://wa.me/94740190519"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Chat on WhatsApp"
+                class="floating-action-btn"
+                style="
+                    display: flex;
+                    width: 55px;
+                    height: 55px;
+                    border-radius: 50%;
+                    background-color: #25D366;
+                    color: #fff;
+                    text-decoration: none;
+                    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+                    transition: opacity 0.3s, transform 0.3s;
+                    align-items: center;
+                    justify-content: center;
+                ">
+                <i class="fab fa-whatsapp" style="font-size: 1.75rem;"></i>
+            </a>
+
+            <button
+                id="scrollToTop"
+                onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+                aria-label="Back to top"
+                class="floating-action-btn"
+                style="
+                    display: none;
+                    width: 55px;
+                    height: 55px;
+                    border-radius: 50%;
+                    background-color: #1a3a6e;
+                    color: #fff;
+                    border: none;
+                    cursor: pointer;
+                    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+                    transition: opacity 0.3s, transform 0.3s;
+                    align-items: center;
+                    justify-content: center;
+                ">
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <polyline points="18 15 12 9 6 15" />
+                </svg>
+            </button>
+        </div>
     </div>
 
     <script>
         (function() {
-            const btn = document.getElementById('scrollToTop');
+            const scrollBtn = document.getElementById('scrollToTop');
+            const floatingBtns = document.querySelectorAll('.floating-action-btn');
 
             window.addEventListener('scroll', function() {
                 if (window.scrollY > 300) {
-                    btn.style.display = 'flex';
+                    scrollBtn.style.display = 'flex';
                 } else {
-                    btn.style.display = 'none';
+                    scrollBtn.style.display = 'none';
                 }
             });
 
-            btn.addEventListener('mouseenter', function() {
-                btn.style.transform = 'translateY(-3px)';
-            });
+            floatingBtns.forEach(function(btn) {
+                btn.addEventListener('mouseenter', function() {
+                    btn.style.transform = 'translateY(-3px)';
+                });
 
-            btn.addEventListener('mouseleave', function() {
-                btn.style.transform = 'translateY(0)';
+                btn.addEventListener('mouseleave', function() {
+                    btn.style.transform = 'translateY(0)';
+                });
             });
         })();
     </script>
