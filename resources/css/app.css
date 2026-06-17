@@ -682,3 +682,274 @@
 .portfolio-card--hidden {
     display: none;
 }
+
+/* Admin panel */
+.admin-shell {
+    display: grid;
+    min-height: 100vh;
+}
+
+@media (min-width: 1024px) {
+    .admin-shell {
+        grid-template-columns: 16rem 1fr;
+    }
+}
+
+.admin-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    background: var(--primary);
+    color: var(--primary-foreground);
+    padding: 1.5rem;
+}
+
+.admin-sidebar__brand {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid oklch(1 0 0 / 0.12);
+}
+
+.admin-sidebar__footer {
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding-top: 1rem;
+    border-top: 1px solid oklch(1 0 0 / 0.12);
+}
+
+.admin-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.admin-nav__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    width: 100%;
+    padding: 0.75rem 0.875rem;
+    border-radius: 0.75rem;
+    font-size: 0.9375rem;
+    color: oklch(0.95 0.01 250 / 0.85);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.15s, color 0.15s;
+    text-decoration: none;
+}
+
+.admin-nav__link:hover,
+.admin-nav__link--active {
+    background: oklch(1 0 0 / 0.1);
+    color: var(--primary-foreground);
+}
+
+.admin-main {
+    min-width: 0;
+}
+
+.admin-topbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.5rem 1.5rem 0;
+}
+
+.admin-content {
+    padding: 1.5rem;
+}
+
+.admin-panel {
+    border: 1px solid var(--hairline);
+    border-radius: 1rem;
+    background: var(--background);
+    padding: 1.5rem;
+}
+
+.admin-login {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+}
+
+.admin-login__card {
+    width: 100%;
+    max-width: 28rem;
+    border: 1px solid var(--hairline);
+    border-radius: 1.25rem;
+    background: var(--background);
+    padding: 2rem;
+    box-shadow: 0 24px 64px oklch(0.16 0.02 250 / 0.08);
+}
+
+.admin-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.admin-input {
+    width: 100%;
+    border: 1px solid var(--hairline);
+    border-radius: 0.75rem;
+    background: var(--background);
+    padding: 0.75rem 0.875rem;
+    font-size: 0.9375rem;
+    line-height: 1.5;
+    color: var(--foreground);
+}
+
+.admin-input:focus {
+    outline: 2px solid var(--brand-azure);
+    outline-offset: 1px;
+}
+
+.admin-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: 9999px;
+    padding: 0.7rem 1.25rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-decoration: none;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: opacity 0.15s, background-color 0.15s;
+}
+
+.admin-btn--primary {
+    background: var(--primary);
+    color: var(--primary-foreground);
+}
+
+.admin-btn--primary:hover {
+    opacity: 0.92;
+}
+
+.admin-btn--ghost {
+    border-color: var(--hairline);
+    background: var(--background);
+    color: var(--foreground);
+}
+
+.admin-flash {
+    margin-bottom: 1rem;
+    border-radius: 0.75rem;
+    border: 1px solid oklch(0.72 0.12 145 / 0.35);
+    background: oklch(0.96 0.03 145);
+    color: oklch(0.35 0.08 145);
+    padding: 0.875rem 1rem;
+    font-size: 0.9375rem;
+}
+
+.admin-flash--error {
+    border-color: oklch(0.72 0.16 27 / 0.35);
+    background: oklch(0.97 0.03 27);
+    color: oklch(0.42 0.14 27);
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9375rem;
+}
+
+.admin-table th {
+    text-align: left;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted-foreground);
+    padding: 0 0 0.875rem;
+    border-bottom: 1px solid var(--hairline);
+}
+
+.admin-table td {
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--hairline);
+    vertical-align: top;
+}
+
+.admin-table tr:last-child td {
+    border-bottom: none;
+}
+
+.admin-link {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--brand-azure);
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.admin-link--danger {
+    color: var(--destructive);
+}
+
+.admin-badge {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 9999px;
+    padding: 0.25rem 0.625rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.admin-badge--success {
+    background: oklch(0.94 0.04 145);
+    color: oklch(0.38 0.1 145);
+}
+
+.admin-badge--muted {
+    background: var(--surface-muted);
+    color: var(--muted-foreground);
+}
+
+.admin-badge--info {
+    background: oklch(0.94 0.04 245);
+    color: oklch(0.38 0.1 245);
+}
+
+.admin-stat-card {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    border: 1px solid var(--hairline);
+    border-radius: 1rem;
+    background: var(--background);
+    padding: 1.5rem;
+    text-decoration: none;
+    color: inherit;
+    transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.admin-stat-card:hover {
+    border-color: oklch(0.62 0.18 245 / 0.35);
+    box-shadow: 0 12px 32px oklch(0.16 0.02 250 / 0.06);
+}
+
+.admin-stat-card__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 0.75rem;
+    background: var(--surface-muted);
+    color: var(--brand-azure);
+}
+

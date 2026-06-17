@@ -127,30 +127,11 @@
         <div class="container-page py-20 md:py-28">
             <x-section-header title="Open remote engineering roles" />
             <div class="mt-16 grid md:grid-cols-3 gap-6">
-                @foreach ([
-                    [
-                        'Senior Full-Stack Engineer',
-                        'Remote · Next.js / Node.js · Full-Time',
-                        'Lead the architecture and development of custom SaaS and ERP platforms.',
-                        'mailto:careers@stackxis.com?subject=Application%3A%20Senior%20Full-Stack%20Engineer',
-                    ],
-                    [
-                        'Cloud & DevOps Architect',
-                        'Remote · AWS / Kubernetes · Full-Time',
-                        'Design, deploy, and scale zero-downtime infrastructure for enterprise clients.',
-                        'mailto:careers@stackxis.com?subject=Application%3A%20Cloud%20%26%20DevOps%20Architect',
-                    ],
-                    [
-                        'General Application',
-                        'Remote · Engineering / Design',
-                        "Don't see a perfect fit? We are always looking for exceptional senior talent. Send us your GitHub and let's talk.",
-                        'mailto:careers@stackxis.com?subject=General%20Application',
-                    ],
-                ] as [$role, $tags, $desc, $href])
-                    <a href="{{ $href }}" class="group flex flex-col rounded-2xl border border-hairline bg-background p-8 hover:border-brand-azure/40 hover:bg-surface-muted transition-colors">
-                        <h3 class="text-xl font-semibold group-hover:text-brand-azure transition-colors">{{ $role }}</h3>
-                        <p class="mt-2 text-sm text-brand-azure">{{ $tags }}</p>
-                        <p class="mt-4 text-muted-foreground flex-1">{{ $desc }}</p>
+                @foreach ($jobs as $job)
+                    <a href="{{ $job->apply_url }}" class="group flex flex-col rounded-2xl border border-hairline bg-background p-8 hover:border-brand-azure/40 hover:bg-surface-muted transition-colors">
+                        <h3 class="text-xl font-semibold group-hover:text-brand-azure transition-colors">{{ $job->title }}</h3>
+                        <p class="mt-2 text-sm text-brand-azure">{{ $job->tags }}</p>
+                        <p class="mt-4 text-muted-foreground flex-1">{{ $job->description }}</p>
                         <span class="mt-6 text-sm font-medium text-brand-azure">Apply via Email <span aria-hidden="true">→</span></span>
                     </a>
                 @endforeach
@@ -174,40 +155,42 @@
 @endsection
 
 @push('head')
-    <script type="application/ld+json">
-        {!! json_encode([
-            '@context' => 'https://schema.org/',
-            '@type' => 'JobPosting',
-            'title' => 'Senior Full-Stack Engineer',
-            'description' => '<p>Stackxis is looking for a Senior Full-Stack Engineer to lead the architecture and development of custom SaaS and ERP platforms. You will work with Next.js, Node.js, TypeScript, and PostgreSQL in a fully remote, asynchronous environment.</p>',
-            'identifier' => [
-                '@type' => 'PropertyValue',
-                'name' => 'Stackxis',
-                'value' => 'full-stack-01',
-            ],
-            'datePosted' => '2025-06-01',
-            'validThrough' => '2025-12-31',
-            'employmentType' => 'FULL_TIME',
-            'hiringOrganization' => [
-                '@type' => 'Organization',
-                'name' => 'Stackxis',
-                'sameAs' => 'https://www.stackxis.com',
-                'logo' => 'https://www.stackxis.com/images/stackxis-logo.png',
-            ],
-            'jobLocationType' => 'TELECOMMUTE',
-            'applicantLocationRequirements' => [
-                '@type' => 'Country',
-                'name' => 'Worldwide',
-            ],
-            'baseSalary' => [
-                '@type' => 'MonetaryAmount',
-                'currency' => 'USD',
-                'value' => [
-                    '@type' => 'QuantitativeValue',
-                    'value' => 'Competitive',
-                    'unitText' => 'YEAR',
+    @if ($schemaJob)
+        <script type="application/ld+json">
+            {!! json_encode([
+                '@context' => 'https://schema.org/',
+                '@type' => 'JobPosting',
+                'title' => $schemaJob->title,
+                'description' => '<p>'.$schemaJob->description.'</p>',
+                'identifier' => [
+                    '@type' => 'PropertyValue',
+                    'name' => 'Stackxis',
+                    'value' => $schemaJob->identifier ?? 'stackxis-job',
                 ],
-            ],
-        ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) !!}
-    </script>
+                'datePosted' => $schemaJob->date_posted?->format('Y-m-d') ?? now()->format('Y-m-d'),
+                'validThrough' => $schemaJob->valid_through?->format('Y-m-d'),
+                'employmentType' => $schemaJob->employment_type,
+                'hiringOrganization' => [
+                    '@type' => 'Organization',
+                    'name' => 'Stackxis',
+                    'sameAs' => config('app.url'),
+                    'logo' => config('app.url').'/images/stackxis-logo.png',
+                ],
+                'jobLocationType' => 'TELECOMMUTE',
+                'applicantLocationRequirements' => [
+                    '@type' => 'Country',
+                    'name' => 'Worldwide',
+                ],
+                'baseSalary' => [
+                    '@type' => 'MonetaryAmount',
+                    'currency' => 'USD',
+                    'value' => [
+                        '@type' => 'QuantitativeValue',
+                        'value' => 'Competitive',
+                        'unitText' => 'YEAR',
+                    ],
+                ],
+            ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) !!}
+        </script>
+    @endif
 @endpush

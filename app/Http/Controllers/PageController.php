@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Support\BlogPosts;
+use App\Models\BlogPost;
+use App\Models\JobPosting;
+use App\Models\PortfolioItem;
 use Illuminate\Http\Response;
 use Illuminate\View\View;
 
@@ -65,17 +67,27 @@ class PageController extends Controller
 
     public function work(): View
     {
+        $featured = PortfolioItem::query()->published()->featured()->ordered()->first();
+        $deployments = PortfolioItem::query()->published()->cards()->ordered()->get();
+
         return view('pages.portfolio', [
             'title' => 'B2B Software Case Studies & Enterprise Deployments — Stackxis',
             'description' => 'Explore custom ERP, POS, and SaaS development portfolio from Stackxis. Enterprise software projects engineered for scale, reliability, and measurable business impact.',
+            'featured' => $featured,
+            'deployments' => $deployments,
         ]);
     }
 
     public function join(): View
     {
+        $jobs = JobPosting::query()->published()->ordered()->get();
+        $schemaJob = $jobs->first();
+
         return view('pages.careers', [
             'title' => 'Careers at Stackxis — Remote Senior Software Engineering Jobs',
             'description' => 'Remote senior software engineering jobs and full-stack developer roles at Stackxis. Join a custom software development studio building ERPs, SaaS platforms, and cloud infrastructure.',
+            'jobs' => $jobs,
+            'schemaJob' => $schemaJob,
         ]);
     }
 
@@ -89,23 +101,35 @@ class PageController extends Controller
 
     public function blog(): View
     {
+        $posts = BlogPost::query()
+            ->published()
+            ->ordered()
+            ->get()
+            ->map(fn (BlogPost $post) => $post->toPublicArray())
+            ->all();
+
         return view('pages.blog', [
             'title' => 'Blog — Stackxis',
             'description' => 'Engineering notes on software architecture, ERP modernization, applied AI, and remote-first delivery from the Stackxis team.',
-            'posts' => BlogPosts::all(),
+            'posts' => $posts,
         ]);
     }
 
     public function blogPost(string $slug): View
     {
-        $post = BlogPosts::find($slug);
+        $blogPost = BlogPost::query()->published()->where('slug', $slug)->first();
 
-        abort_unless($post, 404);
+        abort_unless($blogPost, 404);
 
-        $morePosts = collect(BlogPosts::all())
+        $post = $blogPost->toPublicArray();
+
+        $morePosts = BlogPost::query()
+            ->published()
+            ->ordered()
             ->where('slug', '!=', $slug)
             ->take(3)
-            ->values()
+            ->get()
+            ->map(fn (BlogPost $related) => $related->toPublicArray())
             ->all();
 
         return view('pages.blog-post', [
@@ -171,18 +195,22 @@ class PageController extends Controller
             ]);
         });
 
-        $blogUrls = collect(BlogPosts::all())->map(function (array $post) {
-            $loc = e(route('blog.show', $post['slug']));
+        $blogUrls = BlogPost::query()
+            ->published()
+            ->ordered()
+            ->get()
+            ->map(function (BlogPost $post) {
+                $loc = e(route('blog.show', $post->slug));
 
-            return implode("\n", [
-                '  <url>',
-                "    <loc>{$loc}</loc>",
-                "    <lastmod>{$post['date']}</lastmod>",
-                '    <changefreq>monthly</changefreq>',
-                '    <priority>0.6</priority>',
-                '  </url>',
-            ]);
-        });
+                return implode("\n", [
+                    '  <url>',
+                    "    <loc>{$loc}</loc>",
+                    "    <lastmod>{$post->published_at->format('Y-m-d')}</lastmod>",
+                    '    <changefreq>monthly</changefreq>',
+                    '    <priority>0.6</priority>',
+                    '  </url>',
+                ]);
+            });
 
         $xml = '<?xml version="1.0" encoding="UTF-8"?>'."\n"
             .'<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'."\n"

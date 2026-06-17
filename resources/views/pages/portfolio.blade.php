@@ -12,80 +12,19 @@
         ['id' => 'web', 'label' => 'Web & Marketing'],
     ];
 
-    $deployments = [
-        [
-            'categories' => ['pos'],
-            'industry' => 'Retail & Hospitality',
-            'type' => 'POS Architecture',
-            'year' => '2025',
-            'metric' => 'Zero data loss during offline-to-online syncs.',
-            'summary' => 'Engineered a high-throughput point-of-sale system across 50+ retail outlets. Built with real-time Redis caching and offline-first capabilities.',
-            'stack' => ['React', 'TypeScript', 'Redis'],
-            'url' => $caseStudyBase.'/work/retail-pos-system',
-        ],
-        [
-            'categories' => ['saas', 'rescue'],
-            'industry' => 'B2B SaaS Platform',
-            'type' => 'Platform Modernization',
-            'year' => '2025',
-            'metric' => 'Zero-downtime monolith decomposition.',
-            'summary' => 'Rescued a failing legacy monolith by decomposing it into scalable Kubernetes microservices, supporting a 300% surge in enterprise user traffic.',
-            'stack' => ['Go', 'Kubernetes', 'GCP'],
-            'url' => $caseStudyBase.'/work/saas-microservices-migration',
-        ],
-        [
-            'categories' => ['web'],
-            'industry' => 'Fintech & Healthcare',
-            'type' => 'Digital Marketing & Web',
-            'year' => '2024',
-            'metric' => '240% increase in qualified enterprise pipeline.',
-            'summary' => 'Designed a high-converting Next.js marketing hub and executed a technical SEO architecture to capture high-intent B2B search traffic.',
-            'stack' => ['Next.js', 'Tailwind', 'SEO'],
-            'url' => $caseStudyBase.'/work/fintech-marketing-hub',
-        ],
-        [
-            'categories' => [],
-            'industry' => 'Applied AI & Data',
-            'type' => 'Data Engineering',
-            'year' => '2024',
-            'metric' => 'Automated 80% of manual reporting workflows.',
-            'summary' => 'Deployed a secure, internal LLM and RAG system over existing enterprise data silos to automate complex financial reporting.',
-            'stack' => ['Python', 'PostgreSQL', 'OpenAI API'],
-            'url' => $caseStudyBase.'/work/ai-reporting-automation',
-        ],
-    ];
-
     $itemListSchema = [
         '@context' => 'https://schema.org',
         '@type' => 'ItemList',
         'name' => 'Stackxis Case Studies and Software Deployments',
         'description' => 'Portfolio of custom software, ERP, and POS systems engineered by Stackxis.',
-        'itemListElement' => [
-            [
+        'itemListElement' => $deployments->values()->map(function ($card, $index) {
+            return [
                 '@type' => 'ListItem',
-                'position' => 1,
-                'url' => $caseStudyBase.'/work/logistics-cloud-erp',
-                'name' => 'Custom Cloud ERP for Global Logistics',
-            ],
-            [
-                '@type' => 'ListItem',
-                'position' => 2,
-                'url' => $caseStudyBase.'/work/retail-pos-system',
-                'name' => 'Multi-Outlet POS System for Retail',
-            ],
-            [
-                '@type' => 'ListItem',
-                'position' => 3,
-                'url' => $caseStudyBase.'/work/saas-microservices-migration',
-                'name' => 'SaaS Platform Modernization and Microservices',
-            ],
-            [
-                '@type' => 'ListItem',
-                'position' => 4,
-                'url' => $caseStudyBase.'/work/fintech-marketing-hub',
-                'name' => 'Next.js Web Design and B2B Digital Marketing',
-            ],
-        ],
+                'position' => $index + 1,
+                'url' => $card->url,
+                'name' => $card->metric ?? $card->deployment_type ?? 'Stackxis deployment',
+            ];
+        })->all(),
     ];
 @endphp
 
@@ -110,37 +49,45 @@
         </div>
     </section>
 
-    {{-- Featured deployment --}}
-    <section class="container-page py-16 md:py-20">
-        <div class="grid lg:grid-cols-[1fr_1.4fr] gap-12 items-center">
-            <div>
-                <span class="inline-block rounded-full border border-hairline px-3 py-1 text-xs uppercase tracking-widest text-brand-azure">
-                    Logistics &amp; Supply Chain
-                </span>
-                <h2 class="mt-6 text-3xl md:text-4xl font-bold leading-tight text-gradient-brand">
-                    40% reduction in global warehouse processing latency.
-                </h2>
-                <p class="mt-4 text-2xl md:text-3xl font-bold leading-tight">Cloud-Native Inventory ERP</p>
-                <p class="mt-5 text-muted-foreground leading-relaxed">
-                    Migrating a fragmented, on-premise inventory system handling 10M+ daily rows into a unified AWS architecture without halting daily operations.
-                </p>
-                <div class="mt-6 flex flex-wrap gap-2">
-                    @foreach (['Node.js', 'PostgreSQL', 'AWS', 'Docker'] as $tech)
-                        <span class="work-tech-chip">{{ $tech }}</span>
-                    @endforeach
+    @if ($featured)
+        {{-- Featured deployment --}}
+        <section class="container-page py-16 md:py-20">
+            <div class="grid lg:grid-cols-[1fr_1.4fr] gap-12 items-center">
+                <div>
+                    @if ($featured->label)
+                        <span class="inline-block rounded-full border border-hairline px-3 py-1 text-xs uppercase tracking-widest text-brand-azure">
+                            {{ $featured->label }}
+                        </span>
+                    @endif
+                    @if ($featured->headline)
+                        <h2 class="mt-6 text-3xl md:text-4xl font-bold leading-tight text-gradient-brand">
+                            {{ $featured->headline }}
+                        </h2>
+                    @endif
+                    @if ($featured->title)
+                        <p class="mt-4 text-2xl md:text-3xl font-bold leading-tight">{{ $featured->title }}</p>
+                    @endif
+                    <p class="mt-5 text-muted-foreground leading-relaxed">{{ $featured->summary }}</p>
+                    <div class="mt-6 flex flex-wrap gap-2">
+                        @foreach ($featured->stack as $tech)
+                            <span class="work-tech-chip">{{ $tech }}</span>
+                        @endforeach
+                    </div>
+                    @if ($featured->url)
+                        <a
+                            href="{{ $featured->url }}"
+                            class="mt-8 inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-medium text-primary-foreground hover:opacity-90 transition"
+                        >
+                            Read the full technical case study <span aria-hidden="true">→</span>
+                        </a>
+                    @endif
                 </div>
-                <a
-                    href="{{ $caseStudyBase }}/work/logistics-cloud-erp"
-                    class="mt-8 inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-medium text-primary-foreground hover:opacity-90 transition"
-                >
-                    Read the full technical case study <span aria-hidden="true">→</span>
-                </a>
+                <div class="work-featured-visual" role="img" aria-label="Cloud ERP inventory dashboard showing warehouse latency, throughput, and sync metrics">
+                    @include('partials.work-erp-dashboard')
+                </div>
             </div>
-            <div class="work-featured-visual" role="img" aria-label="Cloud ERP inventory dashboard showing warehouse latency, throughput, and sync metrics">
-                @include('partials.work-erp-dashboard')
-            </div>
-        </div>
-    </section>
+        </section>
+    @endif
 
     {{-- Sticky filter --}}
     <div class="work-filter-bar" id="work-filter-bar">
@@ -165,19 +112,22 @@
     <x-section id="deployments-grid">
         <div class="grid md:grid-cols-2 gap-5 md:gap-6" id="portfolio-cards">
             @foreach ($deployments as $card)
+                @php
+                    $cardData = $card->toCardArray();
+                @endphp
                 <article
                     class="portfolio-card"
-                    data-categories="{{ implode(' ', $card['categories']) }}"
+                    data-categories="{{ implode(' ', $cardData['categories']) }}"
                 >
                     <div class="portfolio-card__meta">
-                        <span>{{ $card['type'] }}</span>
-                        <span>{{ $card['year'] }}</span>
+                        <span>{{ $cardData['type'] }}</span>
+                        <span>{{ $cardData['year'] }}</span>
                     </div>
-                    <p class="text-xs uppercase tracking-widest text-brand-sky">{{ $card['industry'] }}</p>
-                    <h3 class="portfolio-card__metric">{{ $card['metric'] }}</h3>
-                    <p class="portfolio-card__summary">{{ $card['summary'] }}</p>
+                    <p class="text-xs uppercase tracking-widest text-brand-sky">{{ $cardData['industry'] }}</p>
+                    <h3 class="portfolio-card__metric">{{ $cardData['metric'] }}</h3>
+                    <p class="portfolio-card__summary">{{ $cardData['summary'] }}</p>
                     <div class="portfolio-card__stack">
-                        @foreach ($card['stack'] as $tech)
+                        @foreach ($cardData['stack'] as $tech)
                             <span class="portfolio-card__tag">{{ $tech }}</span>
                         @endforeach
                     </div>
