@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\BlogPost;
+use App\Models\JobPosting;
+use App\Models\PortfolioItem;
 use Illuminate\Http\Response;
 use Illuminate\View\View;
 
@@ -18,16 +21,39 @@ class PageController extends Controller
     public function about(): View
     {
         return view('pages.about', [
-            'title' => 'About — Stackxis',
-            'description' => 'Who we are, what we stand for, and the engineering principles behind every Stackxis build.',
+            'title' => 'About Stackxis — Remote-First Software Development Company',
+            'description' => 'A senior software engineering studio built by developers, for ambitious teams. Remote-first custom software, cloud ERPs, and enterprise platforms — engineered for reliability.',
+            'founders' => [
+                [
+                    'name' => 'Founder Name',
+                    'role' => 'Co-Founder / Engineering Lead',
+                    'bio' => 'Senior full-stack engineer with a decade of experience architecting production systems across fintech and SaaS.',
+                    'linkedin' => '#',
+                    'initials' => 'FN',
+                ],
+                [
+                    'name' => 'Founder Name',
+                    'role' => 'Co-Founder / Systems Architect',
+                    'bio' => 'Specializes in cloud-native infrastructure, distributed systems, and legacy platform modernization at enterprise scale.',
+                    'linkedin' => '#',
+                    'initials' => 'FN',
+                ],
+                [
+                    'name' => 'Founder Name',
+                    'role' => 'Co-Founder / Product Lead',
+                    'bio' => 'Bridges technical architecture and product strategy — shipping MVPs to multi-tenant platforms for funded startups and operators.',
+                    'linkedin' => '#',
+                    'initials' => 'FN',
+                ],
+            ],
         ]);
     }
 
     public function capabilities(): View
     {
         return view('pages.services', [
-            'title' => 'Capabilities — Stackxis',
-            'description' => 'Product engineering, platform & cloud, applied AI, and design systems — senior teams delivering production-grade software.',
+            'title' => 'End-to-End Software Development Services for B2B — Stackxis',
+            'description' => 'Custom software engineering, ERP & POS development, cloud infrastructure, applied AI, and B2B digital marketing — delivered by senior-only engineers.',
         ]);
     }
 
@@ -41,25 +67,100 @@ class PageController extends Controller
 
     public function work(): View
     {
+        $featured = PortfolioItem::query()->published()->featured()->ordered()->first();
+        $deployments = PortfolioItem::query()->published()->cards()->ordered()->get();
+
         return view('pages.portfolio', [
-            'title' => 'Selected Work — Stackxis',
-            'description' => 'A selection of builds and platforms Stackxis has designed, engineered, and scaled with clients across industries.',
+            'title' => 'B2B Software Case Studies & Enterprise Deployments — Stackxis',
+            'description' => 'Explore custom ERP, POS, and SaaS development portfolio from Stackxis. Enterprise software projects engineered for scale, reliability, and measurable business impact.',
+            'featured' => $featured,
+            'deployments' => $deployments,
         ]);
     }
 
     public function join(): View
     {
+        $jobs = JobPosting::query()->published()->ordered()->get();
+        $schemaJob = $jobs->first();
+
         return view('pages.careers', [
-            'title' => 'Join — Stackxis',
-            'description' => 'Join a senior engineering studio that values craft, autonomy, and meaningful work. Open roles and how we hire.',
+            'title' => 'Careers at Stackxis — Remote Senior Software Engineering Jobs',
+            'description' => 'Remote senior software engineering jobs and full-stack developer roles at Stackxis. Join a custom software development studio building ERPs, SaaS platforms, and cloud infrastructure.',
+            'jobs' => $jobs,
+            'schemaJob' => $schemaJob,
         ]);
     }
 
     public function contact(): View
     {
         return view('pages.contact', [
-            'title' => 'Contact — Stackxis',
-            'description' => 'Tell us about your project. Free 30-minute consultation with a senior engineer — no decks, no sales.',
+            'title' => 'Contact Stackxis — Hire Custom Software Developers',
+            'description' => 'Contact our software engineering studio for a B2B project consultation. Senior architects review every inquiry within 24 hours — no sales decks, no account managers.',
+        ]);
+    }
+
+    public function blog(): View
+    {
+        $posts = BlogPost::query()
+            ->published()
+            ->ordered()
+            ->get()
+            ->map(fn (BlogPost $post) => $post->toPublicArray())
+            ->all();
+
+        return view('pages.blog', [
+            'title' => 'Blog — Stackxis',
+            'description' => 'Engineering notes on software architecture, ERP modernization, applied AI, and remote-first delivery from the Stackxis team.',
+            'posts' => $posts,
+        ]);
+    }
+
+    public function blogPost(string $slug): View
+    {
+        $blogPost = BlogPost::query()->published()->where('slug', $slug)->first();
+
+        abort_unless($blogPost, 404);
+
+        $post = $blogPost->toPublicArray();
+
+        $morePosts = BlogPost::query()
+            ->published()
+            ->ordered()
+            ->where('slug', '!=', $slug)
+            ->take(3)
+            ->get()
+            ->map(fn (BlogPost $related) => $related->toPublicArray())
+            ->all();
+
+        return view('pages.blog-post', [
+            'title' => $post['title'].' — Stackxis Blog',
+            'description' => $post['excerpt'],
+            'post' => $post,
+            'morePosts' => $morePosts,
+        ]);
+    }
+
+    public function privacyPolicy(): View
+    {
+        return view('pages.privacy-policy', [
+            'title' => 'Privacy Policy — Stackxis',
+            'description' => 'How Stackxis collects, uses, and protects your personal information.',
+        ]);
+    }
+
+    public function termsAndConditions(): View
+    {
+        return view('pages.terms-and-conditions', [
+            'title' => 'Terms & Conditions — Stackxis',
+            'description' => 'Terms governing your use of the Stackxis website and engineering services.',
+        ]);
+    }
+
+    public function cookiePolicy(): View
+    {
+        return view('pages.cookie-policy', [
+            'title' => 'Cookie Policy — Stackxis',
+            'description' => 'How Stackxis uses cookies and similar technologies on our website.',
         ]);
     }
 
@@ -73,6 +174,10 @@ class PageController extends Controller
             ['route' => 'join', 'priority' => '0.8', 'changefreq' => 'weekly'],
             ['route' => 'work', 'priority' => '0.7', 'changefreq' => 'monthly'],
             ['route' => 'contact', 'priority' => '0.7', 'changefreq' => 'monthly'],
+            ['route' => 'blog', 'priority' => '0.8', 'changefreq' => 'weekly'],
+            ['route' => 'privacy-policy', 'priority' => '0.3', 'changefreq' => 'yearly'],
+            ['route' => 'terms-and-conditions', 'priority' => '0.3', 'changefreq' => 'yearly'],
+            ['route' => 'cookie-policy', 'priority' => '0.3', 'changefreq' => 'yearly'],
         ];
 
         $lastmod = now()->toDateString();
@@ -88,11 +193,28 @@ class PageController extends Controller
                 "    <priority>{$page['priority']}</priority>",
                 '  </url>',
             ]);
-        })->join("\n");
+        });
+
+        $blogUrls = BlogPost::query()
+            ->published()
+            ->ordered()
+            ->get()
+            ->map(function (BlogPost $post) {
+                $loc = e(route('blog.show', $post->slug));
+
+                return implode("\n", [
+                    '  <url>',
+                    "    <loc>{$loc}</loc>",
+                    "    <lastmod>{$post->published_at->format('Y-m-d')}</lastmod>",
+                    '    <changefreq>monthly</changefreq>',
+                    '    <priority>0.6</priority>',
+                    '  </url>',
+                ]);
+            });
 
         $xml = '<?xml version="1.0" encoding="UTF-8"?>'."\n"
             .'<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'."\n"
-            .$urls."\n"
+            .$urls->merge($blogUrls)->join("\n")."\n"
             .'</urlset>';
 
         return response($xml, 200, [

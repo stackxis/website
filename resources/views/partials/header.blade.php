@@ -1,10 +1,11 @@
 @php
     $links = [
-        ['route' => 'home', 'label' => 'Home', 'exact' => true],
-        ['route' => 'capabilities', 'label' => 'Capabilities'],
-        ['route' => 'expertise', 'label' => 'Expertise'],
+        ['route' => 'home', 'label' => 'Home'],
         ['route' => 'about', 'label' => 'About'],
-        ['route' => 'join', 'label' => 'Join'],
+        ['route' => 'capabilities', 'label' => 'Capabilities'],
+        ['route' => 'work', 'label' => 'Work'],
+        ['route' => 'join', 'label' => 'Careers'],
+        // ['route' => 'contact', 'label' => 'Contact'],
     ];
 @endphp
 
@@ -17,17 +18,9 @@
 
             <nav class="site-header-nav">
                 @foreach ($links as $link)
-                    @php
-                        $isActive = $link['exact'] ?? false
-                            ? request()->routeIs($link['route'])
-                            : request()->routeIs($link['route']);
-                    @endphp
                     <a
                         href="{{ route($link['route']) }}"
-                        @class([
-                            'site-header-link',
-                            'site-header-link--active' => $isActive,
-                        ])
+                        class="site-header-link {{ request()->routeIs($link['route']) ? 'site-header-link--active' : '' }}"
                     >
                         {{ $link['label'] }}
                     </a>
@@ -38,6 +31,7 @@
                 <a href="{{ route('contact') }}" class="site-header-cta">
                     Let's Talk
                 </a>
+
                 <button
                     id="mobile-menu-toggle"
                     class="site-header-toggle"
@@ -55,25 +49,18 @@
     <div class="container-page">
         <div id="mobile-menu" class="site-header-mobile hidden">
             <nav class="flex flex-col">
-            @foreach ($links as $link)
-                @php
-                    $isActive = $link['exact'] ?? false
-                        ? request()->routeIs($link['route'])
-                        : request()->routeIs($link['route']);
-                @endphp
-                <a
-                    href="{{ route($link['route']) }}"
-                    @class([
-                        'site-header-mobile-link',
-                        'site-header-link--active' => $isActive,
-                    ])
-                >
-                    {{ $link['label'] }}
+                @foreach ($links as $link)
+                    <a
+                        href="{{ route($link['route']) }}"
+                        class="site-header-mobile-link {{ request()->routeIs($link['route']) ? 'site-header-link--active' : '' }}"
+                    >
+                        {{ $link['label'] }}
+                    </a>
+                @endforeach
+
+                <a href="{{ route('contact') }}" class="site-header-cta mt-3 inline-flex items-center justify-center">
+                    Let's Talk
                 </a>
-            @endforeach
-            <a href="{{ route('contact') }}" class="site-header-cta mt-3 inline-flex items-center justify-center">
-                Let's Talk
-            </a>
             </nav>
         </div>
     </div>
