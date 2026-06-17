@@ -66,8 +66,8 @@ class PageController extends Controller
     public function work(): View
     {
         return view('pages.portfolio', [
-            'title' => 'Selected Work — Stackxis',
-            'description' => 'A selection of builds and platforms Stackxis has designed, engineered, and scaled with clients across industries.',
+            'title' => 'B2B Software Case Studies & Enterprise Deployments — Stackxis',
+            'description' => 'Explore custom ERP, POS, and SaaS development portfolio from Stackxis. Enterprise software projects engineered for scale, reliability, and measurable business impact.',
         ]);
     }
 

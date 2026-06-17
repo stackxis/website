@@ -503,3 +503,182 @@
 .group:hover .blog-cover img {
     transform: scale(1.03);
 }
+
+.work-filter-bar {
+    position: sticky;
+    top: 5.5rem;
+    z-index: 40;
+    border-block: 1px solid var(--hairline);
+    background: rgb(255 255 255 / 0.92);
+    backdrop-filter: blur(16px);
+}
+
+.work-filter-bar__track {
+    display: flex;
+    gap: 0.5rem;
+    overflow-x: auto;
+    padding-block: 0.875rem;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.work-filter-bar__track::-webkit-scrollbar {
+    display: none;
+}
+
+.work-filter-btn {
+    flex-shrink: 0;
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    border: 1px solid var(--hairline);
+    background: var(--background);
+    color: var(--muted-foreground);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    white-space: nowrap;
+    transition: color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.work-filter-btn:hover {
+    color: var(--ink);
+    border-color: var(--brand-azure);
+}
+
+.work-filter-btn--active {
+    color: var(--ink);
+    border-color: var(--brand-azure);
+    background: var(--surface-muted);
+    box-shadow: 0 0 0 1px oklch(0.62 0.18 245 / 0.25);
+}
+
+.portfolio-card {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    padding: 1.75rem;
+    border-radius: 1.25rem;
+    border: 1px solid oklch(0.32 0.12 252 / 0.35);
+    background: linear-gradient(160deg, oklch(0.22 0.06 252) 0%, oklch(0.18 0.05 252) 100%);
+    color: oklch(0.99 0 0);
+    transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+@media (min-width: 768px) {
+    .portfolio-card {
+        padding: 2rem;
+    }
+}
+
+.portfolio-card:hover {
+    border-color: oklch(0.62 0.18 245 / 0.55);
+    box-shadow: 0 0 0 1px oklch(0.62 0.18 245 / 0.35), 0 16px 48px oklch(0.16 0.02 250 / 0.35);
+    transform: translateY(-2px);
+}
+
+.portfolio-card__meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    font-size: 0.6875rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: oklch(0.78 0.12 235);
+}
+
+.portfolio-card__metric {
+    font-size: 1.375rem;
+    line-height: 1.2;
+    font-weight: 700;
+    background: linear-gradient(120deg, oklch(0.78 0.12 235), oklch(0.62 0.18 245));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+@media (min-width: 768px) {
+    .portfolio-card__metric {
+        font-size: 1.5rem;
+    }
+}
+
+.portfolio-card__summary {
+    flex: 1;
+    font-size: 0.9375rem;
+    line-height: 1.65;
+    color: oklch(0.85 0.02 250);
+}
+
+.portfolio-card__stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.portfolio-card__tag {
+    padding: 0.3rem 0.65rem;
+    border-radius: 9999px;
+    border: 1px solid oklch(1 0 0 / 0.12);
+    background: oklch(1 0 0 / 0.06);
+    font-size: 0.75rem;
+    color: oklch(0.9 0.02 250);
+}
+
+.work-success-strip {
+    position: relative;
+    overflow: hidden;
+    background: var(--primary);
+    color: var(--primary-foreground);
+}
+
+.work-success-strip::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(to right, oklch(1 0 0 / 0.06) 1px, transparent 1px),
+        linear-gradient(to bottom, oklch(1 0 0 / 0.06) 1px, transparent 1px);
+    background-size: 64px 64px;
+    pointer-events: none;
+}
+
+.work-featured-visual {
+    position: relative;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    border: 1px solid var(--hairline);
+    background: linear-gradient(145deg, oklch(0.2 0.05 252), oklch(0.16 0.04 252));
+    box-shadow: 0 24px 64px oklch(0.16 0.02 250 / 0.2);
+}
+
+.work-featured-visual img,
+.work-featured-visual__svg {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.work-featured-visual::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 55%, oklch(0.16 0.04 252 / 0.35) 100%);
+    pointer-events: none;
+}
+
+.work-tech-chip {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.35rem 0.75rem;
+    border-radius: 9999px;
+    border: 1px solid var(--hairline);
+    background: var(--surface-muted);
+    font-size: 0.8125rem;
+    color: var(--foreground);
+}
+
+.portfolio-card--hidden {
+    display: none;
+}

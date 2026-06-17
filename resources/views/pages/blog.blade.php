@@ -21,11 +21,11 @@
                     </a>
 
                     <div class="flex flex-1 flex-col p-8 md:p-10">
-                        <div class="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs uppercase tracking-widest text-muted-foreground">
+                        <div class="flex flex-wrap items-center gap-3 text-xs uppercase tracking-widest text-muted-foreground">
                             <span class="text-brand-azure font-medium">{{ $post['category'] }}</span>
-                            <span class="hidden sm:inline" aria-hidden="true">·</span>
+                            <span aria-hidden="true">·</span>
                             <time datetime="{{ $post['date'] }}">{{ \Carbon\Carbon::parse($post['date'])->format('M j, Y') }}</time>
-                            <span class="hidden sm:inline" aria-hidden="true">·</span>
+                            <span aria-hidden="true">·</span>
                             <span>{{ $post['read_time'] }}</span>
                         </div>
 
