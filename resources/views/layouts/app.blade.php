@@ -69,10 +69,28 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <script src="{{ asset('js/app.js') }}" defer></script>
 
+    <style>
+        body.is-loading {
+            overflow: hidden;
+        }
+
+        #page-preloader {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #fff;
+        }
+    </style>
+
     @stack('head')
 </head>
 
-<body>
+<body class="is-loading">
+    @include('partials.preloader')
+
     <div class="flex min-h-screen flex-col">
         @include('partials.header')
 
