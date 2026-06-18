@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     @php
-        $pageTitle = $title ?? 'Stackxis — Engineering studio for ambitious software teams';
+        $pageTitle = $title ?? 'Custom Software Development Company | Stackxis';
         $pageDescription =
             $description ??
-            'Stackxis is a software engineering studio designing, building, and scaling reliable products for modern businesses.';
+            'Stackxis is a senior-only software development studio building reliable, custom software solutions, web applications, and enterprise platforms for ambitious teams.';
         $pageUrl = url()->current();
         $pageImage = $ogImage ?? asset('images/logo.png');
     @endphp
@@ -69,10 +69,28 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <script src="{{ asset('js/app.js') }}" defer></script>
 
+    <style>
+        body.is-loading {
+            overflow: hidden;
+        }
+
+        #page-preloader {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #fff;
+        }
+    </style>
+
     @stack('head')
 </head>
 
-<body>
+<body class="is-loading">
+    @include('partials.preloader')
+
     <div class="flex min-h-screen flex-col">
         @include('partials.header')
 
@@ -95,7 +113,7 @@
                 align-items: center;
             ">
             <a
-                href="https://wa.me/94740190519"
+                href="https://wa.me/94740190589"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Chat on WhatsApp"

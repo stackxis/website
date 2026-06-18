@@ -1058,3 +1058,105 @@
     color: var(--brand-azure);
 }
 
+/* Page preloader */
+body.is-loading {
+    overflow: hidden;
+}
+
+.page-preloader {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--surface);
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+        visibility 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.page-preloader--hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.page-preloader__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 1.25rem;
+}
+
+.page-preloader__label {
+    position: absolute;
+    left: -9999px;
+    font-size: 0;
+}
+
+.page-preloader__logo {
+    display: block;
+    overflow: visible;
+}
+
+.page-preloader__piece {
+    opacity: 0;
+    transform-box: fill-box;
+    transform-origin: center;
+}
+
+@keyframes preloader-fall {
+    0% {
+        opacity: 0;
+        transform: translateY(-40px) scale(0.8);
+    }
+
+    65% {
+        opacity: 1;
+        transform: translateY(5px) scale(1.05);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.page-preloader__piece--1 {
+    animation: preloader-fall 0.4s cubic-bezier(0.22, 1, 0.36, 1) 0s both;
+}
+
+.page-preloader__piece--2 {
+    animation: preloader-fall 0.4s cubic-bezier(0.22, 1, 0.36, 1) 0.18s both;
+}
+
+.page-preloader__piece--3 {
+    animation: preloader-fall 0.4s cubic-bezier(0.22, 1, 0.36, 1) 0.36s both;
+}
+
+.page-preloader__piece--4 {
+    animation: preloader-fall 0.4s cubic-bezier(0.22, 1, 0.36, 1) 0.54s both;
+}
+
+.page-preloader__piece--5 {
+    animation: preloader-fall 0.4s cubic-bezier(0.22, 1, 0.36, 1) 0.72s both;
+}
+
+.page-preloader__piece--6 {
+    animation: preloader-fall 0.4s cubic-bezier(0.22, 1, 0.36, 1) 0.9s both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .page-preloader__piece {
+        opacity: 1;
+        animation: none;
+    }
+
+    .page-preloader {
+        transition-duration: 0.15s;
+    }
+}
+
