@@ -67,7 +67,7 @@
                 </li>
                 <li>
 
-                    <a href="{{ route('join') }}" class="hover:text-primary">
+                    <a href="{{ route('careers') }}" class="hover:text-primary">
                         Careers
                     </a>
                 </li>
