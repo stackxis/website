@@ -14,7 +14,7 @@
 
             <p class="mt-2 text-sm text-muted-foreground">
                 <i class="fas fa-phone mr-2"></i>
-                +94 77 123 4567
+                +94 740 190 589
             </p>
             <div class="flex items-center gap-5 mt-6">
 
