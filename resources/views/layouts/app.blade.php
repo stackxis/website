@@ -95,7 +95,7 @@
                 align-items: center;
             ">
             <a
-                href="https://wa.me/94740190519"
+                href="https://wa.me/94740190589"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Chat on WhatsApp"
