@@ -13,16 +13,16 @@ class PageController extends Controller
     public function home(): View
     {
         return view('pages.home', [
-            'title' => 'Stackxis — Engineering studio for ambitious software teams',
-            'description' => 'We design, build, and scale dependable software. From product strategy to production-grade platforms — built by a senior team.',
+            'title' => 'Custom Software Development Company | Stackxis',
+            'description' => 'Stackxis is a senior-only software development studio building reliable, custom software solutions, web applications, and enterprise platforms for ambitious teams.',
         ]);
     }
 
     public function about(): View
     {
         return view('pages.about', [
-            'title' => 'About Stackxis — Remote-First Software Development Company',
-            'description' => 'A senior software engineering studio built by developers, for ambitious teams. Remote-first custom software, cloud ERPs, and enterprise platforms — engineered for reliability.',
+            'title' => 'Reliable Software Development Agency | About Stackxis',
+            'description' => 'Learn about Stackxis, a senior-only software consulting firm and reliable software development agency driving digital transformation for ambitious businesses.',
             'founders' => [
                 [
                     'name' => 'Founder Name',
@@ -52,8 +52,8 @@ class PageController extends Controller
     public function capabilities(): View
     {
         return view('pages.services', [
-            'title' => 'End-to-End Software Development Services for B2B — Stackxis',
-            'description' => 'Custom software engineering, ERP & POS development, cloud infrastructure, applied AI, and B2B digital marketing — delivered by senior-only engineers.',
+            'title' => 'Custom Software Solutions & SaaS Product Engineering | Stackxis',
+            'description' => 'End-to-end software solutions managed entirely by senior engineers. From scalable multi-tenant SaaS platforms to custom API backend architecture.',
         ]);
     }
 
@@ -71,8 +71,8 @@ class PageController extends Controller
         $deployments = PortfolioItem::query()->published()->cards()->ordered()->get();
 
         return view('pages.portfolio', [
-            'title' => 'B2B Software Case Studies & Enterprise Deployments — Stackxis',
-            'description' => 'Explore custom ERP, POS, and SaaS development portfolio from Stackxis. Enterprise software projects engineered for scale, reliability, and measurable business impact.',
+            'title' => 'Our Work: Custom Software & Web Design Portfolio | Stackxis',
+            'description' => 'Explore our portfolio of custom software, scalable SaaS platforms, and high-converting web designs engineered by the senior development team at Stackxis.',
             'featured' => $featured,
             'deployments' => $deployments,
         ]);
@@ -84,8 +84,8 @@ class PageController extends Controller
         $schemaJob = $jobs->first();
 
         return view('pages.careers', [
-            'title' => 'Careers at Stackxis — Remote Senior Software Engineering Jobs',
-            'description' => 'Remote senior software engineering jobs and full-stack developer roles at Stackxis. Join a custom software development studio building ERPs, SaaS platforms, and cloud infrastructure.',
+            'title' => 'Careers at Stackxis | Remote Senior Software Engineering Jobs',
+            'description' => 'Join a remote-first, senior-only software engineering studio. We are hiring experienced developers and engineers to build reliable, outcome-driven software.',
             'jobs' => $jobs,
             'schemaJob' => $schemaJob,
         ]);
@@ -94,8 +94,8 @@ class PageController extends Controller
     public function contact(): View
     {
         return view('pages.contact', [
-            'title' => 'Contact Stackxis — Hire Custom Software Developers',
-            'description' => 'Contact our software engineering studio for a B2B project consultation. Senior architects review every inquiry within 24 hours — no sales decks, no account managers.',
+            'title' => 'Contact Us | Custom Software & Web Development | Stackxis',
+            'description' => 'Ready to scale your business? Contact Stackxis today to discuss your custom software development, digital marketing, or web design project with our team.',
         ]);
     }
 
@@ -109,8 +109,8 @@ class PageController extends Controller
             ->all();
 
         return view('pages.blog', [
-            'title' => 'Blog — Stackxis',
-            'description' => 'Engineering notes on software architecture, ERP modernization, applied AI, and remote-first delivery from the Stackxis team.',
+            'title' => 'Software Engineering & Digital Marketing Blog | Stackxis',
+            'description' => 'Read the latest insights on custom software development, ERP systems, B2B SaaS architecture, and digital marketing strategies from the Stackxis team.',
             'posts' => $posts,
         ]);
     }
@@ -143,16 +143,16 @@ class PageController extends Controller
     public function privacyPolicy(): View
     {
         return view('pages.privacy-policy', [
-            'title' => 'Privacy Policy — Stackxis',
-            'description' => 'How Stackxis collects, uses, and protects your personal information.',
+            'title' => 'Privacy Policy | Stackxis Data & Data Protection',
+            'description' => 'Read the Stackxis Privacy Policy to understand how we collect, use, and protect your personal data when utilizing our website and software services.',
         ]);
     }
 
     public function termsAndConditions(): View
     {
         return view('pages.terms-and-conditions', [
-            'title' => 'Terms & Conditions — Stackxis',
-            'description' => 'Terms governing your use of the Stackxis website and engineering services.',
+            'title' => 'Terms & Conditions | Stackxis Software Studio',
+            'description' => 'Review the complete Terms & Conditions for using the Stackxis website and our custom software development, web design, and digital marketing services.',
         ]);
     }
 

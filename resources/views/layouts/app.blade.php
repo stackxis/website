@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     @php
-        $pageTitle = $title ?? 'Stackxis — Engineering studio for ambitious software teams';
+        $pageTitle = $title ?? 'Custom Software Development Company | Stackxis';
         $pageDescription =
             $description ??
-            'Stackxis is a software engineering studio designing, building, and scaling reliable products for modern businesses.';
+            'Stackxis is a senior-only software development studio building reliable, custom software solutions, web applications, and enterprise platforms for ambitious teams.';
         $pageUrl = url()->current();
         $pageImage = $ogImage ?? asset('images/logo.png');
     @endphp
