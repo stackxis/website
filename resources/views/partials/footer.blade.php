@@ -151,7 +151,7 @@
         <div
             class="container-page py-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-muted-foreground">
             <p>&copy; {{ date('Y') }} Stackxis. All rights reserved.</p>
-            <p>Crafted with intent.</p>
+            <p>Business software and engineering.</p>
         </div>
     </div>
 </footer>
