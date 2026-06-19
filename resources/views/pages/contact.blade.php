@@ -18,13 +18,7 @@
             <div>
                 <h3 class="text-xs uppercase tracking-[0.2em] text-brand-azure font-medium">WhatsApp</h3>
                 <p class="mt-3 text-xl font-medium">
-                    <a href="https://wa.me/94740190519" target="_blank" rel="noopener noreferrer" class="hover:text-brand-azure transition">Click to chat securely</a>
-                </p>
-            </div>
-            <div>
-                <h3 class="text-xs uppercase tracking-[0.2em] text-brand-azure font-medium">LinkedIn</h3>
-                <p class="mt-3 text-xl font-medium">
-                    <a href="https://www.linkedin.com/company/stackxis/" target="_blank" rel="noopener noreferrer" class="hover:text-brand-azure transition">Connect with Stackxis</a>
+                    <a href="https://wa.me/94740190589" target="_blank" rel="noopener noreferrer" class="hover:text-brand-azure transition">+94 740 190 589</a>
                 </p>
             </div>
             <div>
