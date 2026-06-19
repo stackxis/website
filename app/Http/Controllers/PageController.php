@@ -78,7 +78,7 @@ class PageController extends Controller
         ]);
     }
 
-    public function join(): View
+    public function careers(): View
     {
         $jobs = JobPosting::query()->published()->ordered()->get();
         $schemaJob = $jobs->first();
@@ -168,11 +168,10 @@ class PageController extends Controller
     {
         $pages = [
             ['route' => 'home', 'priority' => '1.0', 'changefreq' => 'weekly'],
-            ['route' => 'capabilities', 'priority' => '0.9', 'changefreq' => 'weekly'],
-            ['route' => 'expertise', 'priority' => '0.9', 'changefreq' => 'weekly'],
             ['route' => 'about', 'priority' => '0.8', 'changefreq' => 'monthly'],
-            ['route' => 'join', 'priority' => '0.8', 'changefreq' => 'weekly'],
+            ['route' => 'capabilities', 'priority' => '0.9', 'changefreq' => 'weekly'],
             ['route' => 'work', 'priority' => '0.7', 'changefreq' => 'monthly'],
+            ['route' => 'careers', 'priority' => '0.8', 'changefreq' => 'weekly'],
             ['route' => 'contact', 'priority' => '0.7', 'changefreq' => 'monthly'],
             ['route' => 'blog', 'priority' => '0.8', 'changefreq' => 'weekly'],
             ['route' => 'privacy-policy', 'priority' => '0.3', 'changefreq' => 'yearly'],
