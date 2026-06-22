@@ -57,13 +57,13 @@ class PageController extends Controller
         ]);
     }
 
-    // public function expertise(): View
-    // {
-    //     return view('pages.solutions', [
-    //         'title' => 'Expertise — Stackxis',
-    //         'description' => 'Industries we know deeply and the technologies we reach for — from fintech to healthcare, React to Kubernetes.',
-    //     ]);
-    // }
+    public function expertise(): View
+    {
+        return view('pages.solutions', [
+            'title' => 'Expertise — Stackxis',
+            'description' => 'Industries we know deeply and the technologies we reach for — from fintech to healthcare, React to Kubernetes.',
+        ]);
+    }
 
     public function work(): View
     {
@@ -170,6 +170,7 @@ class PageController extends Controller
             ['route' => 'home', 'priority' => '1.0', 'changefreq' => 'weekly'],
             ['route' => 'about', 'priority' => '0.8', 'changefreq' => 'monthly'],
             ['route' => 'capabilities', 'priority' => '0.9', 'changefreq' => 'weekly'],
+            ['route' => 'expertise', 'priority' => '0.8', 'changefreq' => 'monthly'],
             ['route' => 'work', 'priority' => '0.7', 'changefreq' => 'monthly'],
             ['route' => 'careers', 'priority' => '0.8', 'changefreq' => 'weekly'],
             ['route' => 'contact', 'priority' => '0.7', 'changefreq' => 'monthly'],
