@@ -1,8 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-    <x-page-hero eyebrow="START A CONVERSATION" title="Let's talk about the architecture of your next project."
-        description="Whether you are scaling a SaaS platform, deploying a custom ERP, or modernizing legacy systems, the first step is a candid conversation. No sales decks, no account managers—just a direct line to our senior engineers." />
+    <x-page-hero eyebrow="START A CONVERSATION"
+        title='Let&apos;s talk about the architecture of your <span class="text-gradient-brand">next project.</span>'
+        description="Whether you are scaling a SaaS platform, deploying a custom ERP, or modernizing legacy systems, the first step is a candid conversation. No sales decks, no account managers just a direct line to our senior engineers." />
 
     <section class="container-page py-20 grid lg:grid-cols-[1fr_1.4fr] gap-16 items-start">
         <div class="space-y-10">
@@ -68,7 +69,6 @@
                 </div>
             </div>
         </div>
-
         <form action="{{ route('contact.store') }}" method="POST"
             class="rounded-3xl border border-hairline bg-surface-muted p-8 md:p-10 space-y-6">
             @csrf
@@ -90,7 +90,7 @@
                     <label for="business_name" class="block text-sm font-medium mb-2">
                         Business Name
                     </label>
-                    <input id="business_name" name="business_name" type="text" required maxlength="200"
+                    <input id="business_name" name="business_name" type="text" maxlength="200"
                         value="{{ old('business_name') }}" placeholder="StackXis Technologies Ltd."
                         class="w-full rounded-xl border border-hairline bg-background px-4 py-3">
                 </div>
@@ -105,7 +105,7 @@
                         Business Email
                     </label>
                     <input id="email" name="email" type="email" required maxlength="200" value="{{ old('email') }}"
-                        placeholder="exsample@gmail.com"
+                        placeholder="example@gmail.com"
                         class="w-full rounded-xl border border-hairline bg-background px-4 py-3">
                 </div>
 
@@ -132,7 +132,6 @@
                     <option value="" disabled selected>
                         Select a project type
                     </option>
-
                     <option>Custom Software Development</option>
                     <option>Web Application</option>
                     <option>Mobile Application</option>
@@ -152,7 +151,7 @@
                     How Can We Help You?
                 </label>
 
-                <textarea id="message" name="message" rows="6" required maxlength="1500"
+                <textarea id="message" name="message" rows="6" maxlength="1500"
                     placeholder="Tell us about your project, goals, required features, expected timeline, and any challenges you're facing."
                     class="w-full rounded-xl border border-hairline bg-background px-4 py-3">{{ old('message') }}</textarea>
             </div>
@@ -190,7 +189,7 @@
             </div>
         </div>
     </section>
-{{-- 
+    {{--
     <section class="border-t border-hairline bg-surface-muted">
         <div class="container-page py-20 md:py-28 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
             <div class="max-w-2xl">
@@ -240,7 +239,7 @@
                         'name' => 'Will I be speaking with a sales representative?',
                         'acceptedAnswer' => [
                             '@type' => 'Answer',
-                            'text' => 'No. We are an engineering-led software development agency. Your initial B2B software project consultation will always be with a senior software architect who can actually evaluate your technical needs.',
+                            'text' => 'No. We are an engineering led software development agency. Your initial B2B software project consultation will always be with a senior software architect who can actually evaluate your technical needs.',
                         ],
                     ],
                     [
@@ -264,7 +263,7 @@
                         'name' => 'How quickly will I hear back after submitting the form?',
                         'acceptedAnswer' => [
                             '@type' => 'Answer',
-                            'text' => 'We operate with a strict 24-hour SLA. A senior engineer will review your submission and reply within one business day.',
+                            'text' => 'We operate with a strict 24 hour SLA. A senior engineer will review your submission and reply within one business day.',
                         ],
                     ],
                 ],

@@ -4,7 +4,7 @@
     <x-page-hero
         eyebrow="Expertise"
         title='Domains we know. Tools we <span class="text-gradient-brand">trust</span>.'
-        description="Depth in regulated, complex industries — paired with a modern, opinionated technology stack."
+        description="Depth in regulated, complex industries paired with a modern, opinionated technology stack."
     />
 
     <x-section>
@@ -13,9 +13,9 @@
             @foreach ([
                 ['Fintech & Payments', 'Trading platforms, ledgers, KYC pipelines, and compliance-grade infrastructure.'],
                 ['Healthcare & Life Sciences', 'HIPAA-aware platforms, clinical workflows, and research data systems.'],
-                ['SaaS & B2B Platforms', 'Multi-tenant products, billing engines, and operator-grade admin tooling.'],
-                ['Logistics & Supply Chain', 'Real-time tracking, optimization engines, and partner integrations.'],
-                ['Media & Marketplaces', 'High-throughput content platforms, search, and recommendation systems.'],
+                ['SaaS & B2B Platforms', 'Multi tenant products, billing engines, and operator grade admin tooling.'],
+                ['Logistics & Supply Chain', 'Real time tracking, optimization engines, and partner integrations.'],
+                ['Media & Marketplaces', 'High throughput content platforms, search, and recommendation systems.'],
                 ['Climate & Energy', 'Monitoring, forecasting, and operational tooling for the energy transition.'],
             ] as [$t, $d])
                 <div class="bg-background p-8 hover:bg-surface-muted transition">
@@ -49,7 +49,7 @@
                 @endforeach
             </div>
             <p class="mt-12 text-primary-foreground/70 max-w-2xl">
-                We're stack-pragmatic. The list above is what we reach for most often — not a religion. The right tool is the one your team can operate at 2am.
+                We're stack pragmatic. The list above is what we reach for most often not a religion. The right tool is the one your team can operate at 2am.
             </p>
         </div>
     </section>

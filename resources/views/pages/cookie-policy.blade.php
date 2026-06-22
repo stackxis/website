@@ -21,9 +21,9 @@
                 <x-legal-section title="2. How we use cookies">
                     <p>Stackxis uses cookies and similar technologies for the following purposes:</p>
                     <ul class="list-disc pl-5 space-y-2">
-                        <li><strong class="text-foreground">Essential cookies</strong> — required for core site functionality, such as maintaining secure sessions when you submit forms or navigate the site.</li>
-                        <li><strong class="text-foreground">Analytics cookies</strong> — help us understand how visitors use our website (e.g. pages viewed, time on site) so we can improve content and performance.</li>
-                        <li><strong class="text-foreground">Preference cookies</strong> — remember choices you make to provide a more consistent experience on return visits.</li>
+                        <li><strong class="text-foreground">Essential cookies</strong> - required for core site functionality, such as maintaining secure sessions when you submit forms or navigate the site.</li>
+                        <li><strong class="text-foreground">Analytics cookies</strong> - help us understand how visitors use our website (e.g. pages viewed, time on site) so we can improve content and performance.</li>
+                        <li><strong class="text-foreground">Preference cookies</strong> - remember choices you make to provide a more consistent experience on return visits.</li>
                     </ul>
                 </x-legal-section>
 
@@ -58,7 +58,7 @@
 
                 <x-legal-section title="4. Third-party cookies">
                     <p>
-                        Some cookies may be set by third-party services we use, such as analytics providers or embedded content. These parties have their own privacy and cookie policies. We encourage you to review them.
+                        Some cookies may be set by third party services we use, such as analytics providers or embedded content. These parties have their own privacy and cookie policies. We encourage you to review them.
                     </p>
                 </x-legal-section>
 
@@ -66,7 +66,7 @@
                     <p>You can control cookies through your browser settings. Most browsers allow you to:</p>
                     <ul class="list-disc pl-5 space-y-2">
                         <li>View and delete cookies stored on your device.</li>
-                        <li>Block all cookies or only third-party cookies.</li>
+                        <li>Block all cookies or only third party cookies.</li>
                         <li>Receive a notification before a cookie is stored.</li>
                     </ul>
                     <p>
