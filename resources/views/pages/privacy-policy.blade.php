@@ -25,10 +25,10 @@
                 <x-legal-section title="2. Information we collect">
                     <p>We may collect the following types of information:</p>
                     <ul class="list-disc pl-5 space-y-2">
-                        <li><strong class="text-foreground">Contact details</strong> — name, email address, phone number, and company name when you submit our contact form or reach out directly.</li>
-                        <li><strong class="text-foreground">Project information</strong> — details you share about your business, technical requirements, and project scope during consultations or engagements.</li>
-                        <li><strong class="text-foreground">Usage data</strong> — pages visited, referring URLs, browser type, device information, and approximate location derived from IP address.</li>
-                        <li><strong class="text-foreground">Communications</strong> — records of email, call, or message correspondence related to enquiries and client work.</li>
+                        <li><strong class="text-foreground">Contact details</strong>- name, email address, phone number, and company name when you submit our contact form or reach out directly.</li>
+                        <li><strong class="text-foreground">Project information</strong>- details you share about your business, technical requirements, and project scope during consultations or engagements.</li>
+                        <li><strong class="text-foreground">Usage data</strong>- pages visited, referring URLs, browser type, device information, and approximate location derived from IP address.</li>
+                        <li><strong class="text-foreground">Communications</strong>- records of email, call, or message correspondence related to enquiries and client work.</li>
                     </ul>
                 </x-legal-section>
 
@@ -57,7 +57,7 @@
                 <x-legal-section title="5. Sharing your information">
                     <p>We may share data with:</p>
                     <ul class="list-disc pl-5 space-y-2">
-                        <li>Service providers who assist with hosting, email delivery, analytics, or project management tools — bound by confidentiality obligations.</li>
+                        <li>Service providers who assist with hosting, email delivery, analytics, or project management tools bound by confidentiality obligations.</li>
                         <li>Professional advisers such as lawyers or accountants when required.</li>
                         <li>Authorities when required by law or to protect our rights.</li>
                     </ul>
@@ -94,7 +94,7 @@
 
                 <x-legal-section title="9. International transfers">
                     <p>
-                        As a remote-first studio, your data may be processed in countries other than your own. Where required, we ensure appropriate safeguards are in place for cross-border data transfers.
+                        As a remote first studio, your data may be processed in countries other than your own. Where required, we ensure appropriate safeguards are in place for cross-border data transfers.
                     </p>
                 </x-legal-section>
 

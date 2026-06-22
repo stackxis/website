@@ -46,7 +46,7 @@
 
                 <x-legal-section title="5. Intellectual property">
                     <p>
-                        All content on this website — including text, graphics, logos, and design — is owned by Stackxis or its licensors and protected by applicable intellectual property laws. You may not use our branding or materials without prior written consent.
+                        All content on this website including text, graphics, logos, and design is owned by Stackxis or its licensors and protected by applicable intellectual property laws. You may not use our branding or materials without prior written consent.
                     </p>
                     <p>
                         Ownership of work product created under a client engagement is governed by the applicable project agreement.

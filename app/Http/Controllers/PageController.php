@@ -57,13 +57,13 @@ class PageController extends Controller
         ]);
     }
 
-    public function expertise(): View
-    {
-        return view('pages.solutions', [
-            'title' => 'Expertise — Stackxis',
-            'description' => 'Industries we know deeply and the technologies we reach for — from fintech to healthcare, React to Kubernetes.',
-        ]);
-    }
+    // public function expertise(): View
+    // {
+    //     return view('pages.solutions', [
+    //         'title' => 'Expertise — Stackxis',
+    //         'description' => 'Industries we know deeply and the technologies we reach for — from fintech to healthcare, React to Kubernetes.',
+    //     ]);
+    // }
 
     public function work(): View
     {
@@ -84,7 +84,7 @@ class PageController extends Controller
         $schemaJob = $jobs->first();
 
         return view('pages.careers', [
-            'title' => 'Careers at Stackxis | Remote Senior Software Engineering Jobs',
+            'title' => 'Careers at Stackxis | Remote Software Engineering Jobs',
             'description' => 'Join a remote-first, senior-only software engineering studio. We are hiring experienced developers and engineers to build reliable, outcome-driven software.',
             'jobs' => $jobs,
             'schemaJob' => $schemaJob,
@@ -159,7 +159,7 @@ class PageController extends Controller
     public function cookiePolicy(): View
     {
         return view('pages.cookie-policy', [
-            'title' => 'Cookie Policy — Stackxis',
+            'title' => 'Cookie Policy | Stackxis',
             'description' => 'How Stackxis uses cookies and similar technologies on our website.',
         ]);
     }

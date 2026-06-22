@@ -3,8 +3,8 @@
 @section('content')
     <x-page-hero
         eyebrow="CAREERS AT STACKXIS"
-        title="Join a senior engineering studio."
-        description="We are a remote-first team of developers and architects building custom ERPs, SaaS platforms, and digital infrastructure. Deep work, real autonomy, and zero agency theatrics."
+        title='Join a senior <span class="text-gradient-brand"> engineering studio.</span>'
+        description="We are a remote first team of developers and architects building custom ERPs, SaaS platforms, and digital infrastructure. Deep work, real autonomy, and zero agency theatrics."
         cta-text="View open roles"
         cta-href="#open-roles"
         cta-icon="↓"
@@ -14,14 +14,14 @@
         <h2 class="sr-only">Scale & Structure</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             @foreach ([
-                ['Remote-First', 'Work from anywhere. We operate a fully asynchronous global infrastructure across Europe, the Americas, and South Asia.'],
+                ['Remote First', 'Work from anywhere. We operate a fully asynchronous global infrastructure across Europe, the Americas, and South Asia.'],
                 ['100% Senior', 'No junior layers. You will work alongside and learn from veteran engineers who actually care about software architecture.'],
                 ['Async by Default', 'Deep work > meetings. We rely on rigorous documentation, clear PRs, and written communication to move fast.'],
                 ['14 Days', 'Our maximum hiring timeline. From your first application to a final offer in two weeks. No endless interview loops.'],
-            ] as [$title, $desc])
+            ] as [$itemTitle, $itemDesc])
                 <div class="rounded-2xl bg-primary text-primary-foreground p-8 md:p-10">
-                    <h3 class="text-xl font-semibold">{{ $title }}</h3>
-                    <p class="mt-3 text-sm text-primary-foreground/70 leading-relaxed">{{ $desc }}</p>
+                    <h3 class="text-xl font-semibold">{{ $itemTitle }}</h3>
+                    <p class="mt-3 text-sm text-primary-foreground/70 leading-relaxed">{{ $itemDesc }}</p>
                 </div>
             @endforeach
         </div>
@@ -33,10 +33,10 @@
         </h2>
         <div class="mt-8 space-y-6 text-lg text-muted-foreground max-w-4xl leading-relaxed">
             <p>
-                Stackxis is a software development company built by engineers, for engineers. We build custom ERP systems, cloud infrastructures, and high-performance web applications for ambitious startups and enterprises.
+                Stackxis is a software development company built by engineers, for engineers. We build custom ERP systems, cloud infrastructures, and high performance web applications for ambitious startups and enterprises.
             </p>
             <p>
-                We don't do micromanagement or artificial deadlines. We hire elite, self-directed talent, hand them complex architectural problems, and get out of their way. If you care deeply about clean code, scalable systems, and shipping products that touch millions of users, you belong here.
+                We don't do micromanagement or artificial deadlines. We hire elite, self directed talent, hand them complex architectural problems, and get out of their way. If you care deeply about clean code, scalable systems, and shipping products that touch millions of users, you belong here.
             </p>
         </div>
     </x-section>
@@ -48,9 +48,9 @@
                 @foreach ([
                     ['01', 'fa-layer-group', 'Craft & Architecture', 'We sweat the details. From database schemas to clean API design, we believe shortcuts today equal outages tomorrow.'],
                     ['02', 'fa-shield-halved', 'Extreme Ownership', 'You build it, you own the outcome. We hand you full responsibility for your features from local environment to production.'],
-                    ['03', 'fa-file-lines', 'Plain Text Clarity', 'No corporate jargon. We value clear, concise written communication, well-documented code, and transparent decisions.'],
+                    ['03', 'fa-file-lines', 'Plain Text Clarity', 'No corporate jargon. We value clear, concise written communication, well documented code, and transparent decisions.'],
                     ['04', 'fa-clock', 'Life Balance', "Burnout doesn't produce good code. We enforce sustainable working hours, flexible schedules, and respect your offline time."],
-                ] as [$n, $icon, $title, $desc])
+                ] as [$n, $icon, $itemTitle, $itemDesc])
                     <div class="rounded-2xl bg-background border border-hairline p-8">
                         <div class="flex items-start gap-5">
                             <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-brand-sky/20 text-brand-azure">
@@ -58,8 +58,8 @@
                             </div>
                             <div>
                                 <span class="text-xs tracking-widest text-brand-azure">{{ $n }}</span>
-                                <h3 class="mt-2 text-lg font-semibold">{{ $title }}</h3>
-                                <p class="mt-3 text-muted-foreground">{{ $desc }}</p>
+                                <h3 class="mt-2 text-lg font-semibold">{{ $itemTitle }}</h3>
+                                <p class="mt-3 text-muted-foreground">{{ $itemDesc }}</p>
                             </div>
                         </div>
                     </div>
@@ -78,24 +78,24 @@
                     <p class="text-xs uppercase tracking-[0.2em] text-brand-azure font-medium">What you get</p>
                     <h2 class="mt-4 text-3xl md:text-5xl font-bold leading-[1.05]">The Benefits Stack</h2>
                     <p class="mt-4 text-muted-foreground leading-relaxed">
-                        No ping-pong tables — just the things senior engineers actually optimize for when choosing where to work.
+                        No ping pong tables just the things senior engineers actually optimize for when choosing where to work.
                     </p>
                 </div>
 
                 <div class="relative mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-4 md:gap-5">
                     @foreach ([
-                        ['fa-chart-line', 'Top-of-band compensation', 'Highly competitive remote salaries based on global market rates.', 'sm:col-span-1 lg:col-span-4'],
+                        ['fa-chart-line', 'Top of band compensation', 'Highly competitive remote salaries based on global market rates.', 'sm:col-span-1 lg:col-span-4'],
                         ['fa-laptop', 'Modern hardware & workspace allowance', 'We fund your ideal home office setup and laptop.', 'sm:col-span-1 lg:col-span-4'],
                         ['fa-code', 'Modern Tech Stack', 'Work daily with Next.js, Node.js, TypeScript, PostgreSQL, AWS/GCP, and Tailwind.', 'sm:col-span-2 lg:col-span-4'],
                         ['fa-umbrella-beach', 'Flexible Time Off (FTO)', 'Take the time you need to recharge, no questions asked.', 'sm:col-span-1 lg:col-span-6'],
                         ['fa-graduation-cap', 'Continuous Learning', 'Stipends for AWS certifications, engineering books, and tech conferences.', 'sm:col-span-1 lg:col-span-6'],
-                    ] as [$icon, $title, $desc, $span])
+                    ] as [$icon, $itemTitle, $itemDesc, $span])
                         <article class="group flex flex-col rounded-2xl border border-hairline bg-background p-6 md:p-8 transition-[border-color,box-shadow] hover:border-brand-azure/35 hover:shadow-lg hover:shadow-brand-azure/5 {{ $span }}">
                             <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-primary text-primary-foreground transition-transform group-hover:scale-105">
                                 <i class="fas {{ $icon }} text-sm" aria-hidden="true"></i>
                             </div>
-                            <h3 class="mt-5 text-lg font-semibold leading-snug">{{ $title }}</h3>
-                            <p class="mt-2 text-sm text-muted-foreground leading-relaxed">{{ $desc }}</p>
+                            <h3 class="mt-5 text-lg font-semibold leading-snug">{{ $itemTitle }}</h3>
+                            <p class="mt-2 text-sm text-muted-foreground leading-relaxed">{{ $itemDesc }}</p>
                         </article>
                     @endforeach
                 </div>
@@ -108,15 +108,15 @@
             <x-section-header title="The Hiring Process" />
             <div class="mt-16 grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-hairline border border-hairline rounded-2xl overflow-hidden">
                 @foreach ([
-                    ['Step 1', 'The Intro Call', 'A 30-minute sync with a founder to discuss your background, our roadmap, and ensure mutual alignment.'],
-                    ['Step 2', 'Technical Deep-Dive', 'A 60-minute systems design conversation. No live whiteboard coding or LeetCode algorithms. Just a real discussion about architecture.'],
-                    ['Step 3', 'The Founder Fit', 'A final 30-minute chat with our core leadership team to discuss how you prefer to work and your long-term goals.'],
+                    ['Step 1', 'The Intro Call', 'A 30 minute sync with a founder to discuss your background, our roadmap, and ensure mutual alignment.'],
+                    ['Step 2', 'Technical Deep-Dive', 'A 60 minute systems design conversation. No live whiteboard coding or LeetCode algorithms. Just a real discussion about architecture.'],
+                    ['Step 3', 'The Founder Fit', 'A final 30 minute chat with our core leadership team to discuss how you prefer to work and your long term goals.'],
                     ['Step 4', 'The Offer', 'Clear, transparent, and prompt. We present our best offer upfront with zero exploding deadlines.'],
-                ] as [$step, $title, $desc])
+                ] as [$step, $itemTitle, $itemDesc])
                     <div class="bg-background p-8">
                         <div class="text-xs text-brand-azure tracking-widest uppercase">{{ $step }}</div>
-                        <h3 class="mt-4 text-xl font-semibold">{{ $title }}</h3>
-                        <p class="mt-2 text-sm text-muted-foreground leading-relaxed">{{ $desc }}</p>
+                        <h3 class="mt-4 text-xl font-semibold">{{ $itemTitle }}</h3>
+                        <p class="mt-2 text-sm text-muted-foreground leading-relaxed">{{ $itemDesc }}</p>
                     </div>
                 @endforeach
             </div>
@@ -142,7 +142,7 @@
                     <x-empty-state
                         icon="fa-briefcase"
                         title="No open roles"
-                        message="There are no open positions currently available. We're always interested in meeting great engineers — reach out via email below."
+                        message="There are no open positions currently available. We're always interested in meeting great engineers - reach out via email below."
                     />
                 @endif
             </div>

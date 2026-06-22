@@ -65,7 +65,7 @@
             <div class="max-w-2xl">
                 <h2 class="text-3xl md:text-4xl font-bold leading-tight">Want to talk through your architecture?</h2>
                 <p class="mt-4 text-lg text-muted-foreground">
-                    Book a free consultation with a senior engineer — no sales deck, just an honest technical conversation.
+                    Book a free consultation with a senior engineer no sales deck, just an honest technical conversation.
                 </p>
             </div>
             <a href="{{ route('contact') }}" class="inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-medium text-primary-foreground hover:opacity-90 transition shrink-0">
