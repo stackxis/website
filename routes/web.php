@@ -19,6 +19,19 @@ Route::get('/terms-and-conditions', [PageController::class, 'termsAndConditions'
 Route::get('/cookie-policy', [PageController::class, 'cookiePolicy'])->name('cookie-policy');
 Route::get('/sitemap.xml', [PageController::class, 'sitemap'])->name('sitemap');
 
+Route::get('/robots.txt', function () {
+    $content = implode("\n", [
+        'User-agent: *',
+        'Disallow: /admin/',
+        '',
+        'Sitemap: '.route('sitemap'),
+    ])."\n";
+
+    return response($content, 200, [
+        'Content-Type' => 'text/plain; charset=UTF-8',
+    ]);
+})->name('robots');
+
 Route::redirect('/services', '/capabilities', 301);
 Route::redirect('/solutions', '/expertise', 301);
 Route::redirect('/join', '/careers', 301);

@@ -73,6 +73,22 @@
             class="rounded-3xl border border-hairline bg-surface-muted p-8 md:p-10 space-y-6">
             @csrf
 
+            @if (session('sent'))
+                <div class="rounded-xl border border-green-500/30 bg-green-500/10 px-4 py-3 text-sm text-green-700 dark:text-green-300">
+                    Thanks for reaching out. We received your message and will get back to you within one business day.
+                </div>
+            @endif
+
+            @if ($errors->any())
+                <div class="rounded-xl border border-red-500/30 bg-red-500/10 px-4 py-3 text-sm text-red-700 dark:text-red-300">
+                    <ul class="space-y-1">
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
             <div class="grid md:grid-cols-2 gap-6">
 
                 <!-- Full Name -->
