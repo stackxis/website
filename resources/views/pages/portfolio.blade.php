@@ -40,11 +40,11 @@
         <div class="absolute inset-0 hairline-grid opacity-[0.35] pointer-events-none"></div>
         <div class="container-page relative pt-28 pb-20 md:pt-36 md:pb-28">
             <p class="text-xs uppercase tracking-[0.2em] text-brand-azure font-medium">SELECTED DEPLOYMENTS</p>
-            <h1 class="mt-5 text-4xl md:text-6xl lg:text-8xl font-bold leading-[1.02] max-w-5xl">
+            <h1 class="mt-5 text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.02] max-w-5xl">
                 Architectures that scale. <span class="text-gradient-brand">Outcomes we own.</span>
             </h1>
             <p class="mt-6 text-lg md:text-xl text-muted-foreground max-w-3xl">
-                Explore our recent enterprise deployments. From zero-downtime legacy migrations to high-throughput cloud ERPs, this is how we engineer competitive advantages for our partners.
+                Explore our recent enterprise deployments. From zero downtime legacy migrations to high throughput cloud ERPs, this is how we engineer competitive advantages for our partners.
             </p>
         </div>
     </section>
@@ -141,7 +141,7 @@
             <x-empty-state
                 icon="fa-folder-open"
                 title="No deployments yet"
-                message="There are no case studies currently available. We're working on new projects — check back soon."
+                message="There are no case studies currently available. We're working on new projects check back soon."
             />
         </x-section>
     @endif
@@ -157,11 +157,11 @@
                     ['01', 'Uptime & Reliability', 'If it goes down, we failed. We architect for 99.99% availability.'],
                     ['02', 'Latency & Speed', 'Slow software kills adoption. We optimize database queries down to the millisecond.'],
                     ['03', 'Revenue & Scale', 'We build infrastructure capable of handling the traffic you don\'t even have yet.'],
-                ] as [$n, $title, $desc])
+                ] as [$n, $ptitle, $pdesc])
                     <div class="border-t border-white/15 pt-8">
                         <span class="text-sm text-brand-sky font-medium">{{ $n }}</span>
-                        <h3 class="mt-3 text-xl font-semibold">{{ $title }}</h3>
-                        <p class="mt-3 text-primary-foreground/70 leading-relaxed">{{ $desc }}</p>
+                        <h3 class="mt-3 text-xl font-semibold">{{ $ptitle }}</h3>
+                        <p class="mt-3 text-primary-foreground/70 leading-relaxed">{{ $pdesc }}</p>
                     </div>
                 @endforeach
             </div>

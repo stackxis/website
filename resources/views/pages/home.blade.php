@@ -40,10 +40,10 @@
      <x-section>
         <x-section-header eyebrow="BY THE NUMBERS" title="A senior software development studio built for scale."
             description="How we engineer, deliver, and support enterprise applications and SaaS platforms." />
-    <div
+            <div
                 class="mt-20 grid grid-cols-1 md:grid-cols-4 gap-px bg-hairline border border-hairline rounded-2xl overflow-hidden">
 
-                @foreach ([['100%', 'Senior Engineers', 'We deploy senior engineers for hire with no junior developers. Every custom software and ERP system is architected by veterans.'], ['6', 'Core Capabilities', 'End-to-end software development services for B2B, covering custom ERPs, POS software, SaaS platforms, and digital marketing.'], ['14', 'Day Sprint Cycles', 'We build in slices. You receive live, working software deployments every two weeks—never quarterly surprises.'], ['99.9%', 'Target Uptime', 'The Description: Production-grade cloud infrastructure featuring automated DevOps pipelines and SLA-backed maintenance for zero-downtime scaling.']] as [$n, $l, $d])
+                @foreach ([['100%', 'Senior Engineers', 'We deploy senior engineers for hire with no junior developers. Every custom software and ERP system is architected by veterans.'], ['6', 'Core Capabilities', 'End to end software development services for B2B, covering custom ERPs, POS software, SaaS platforms, and digital marketing.'], ['14', 'Day Sprint Cycles', 'We build in slices. You receive live, working software deployments every two weeks never quarterly surprises.'], ['99.9%', 'Target Uptime', 'The Description: Production grade cloud infrastructure featuring automated DevOps pipelines and SLA backed maintenance for zero downtime scaling.']] as [$n, $l, $d])
                     <div class="bg-background p-8 md:p-10">
                         <div class="text-4xl md:text-5xl font-bold text-gradient-brand">
                             {{ $n }}
@@ -65,9 +65,9 @@
     {{-- CAPABILITIES --}}
     <x-section>
         <x-section-header eyebrow="Capabilities" title="Engineering & Growth Solutions Under One Roof."
-            description="From complex custom software and cloud-native ERPs to revenue-driving digital marketing, we provide the technical foundation to scale your entire business." />
+            description="From complex custom software and cloud native ERPs to revenue driving digital marketing, we provide the technical foundation to scale your entire business." />
         <div class="mt-16 grid md:grid-cols-2 gap-px bg-hairline border border-hairline rounded-3xl overflow-hidden">
-            @foreach ([['01', 'Custom Software Development', 'Bespoke web and mobile applications, legacy modernization, and scalable API architectures built entirely by senior engineers.'], ['02', 'Application Services', 'Continuous cloud DevOps optimization, security compliance, and SLA-backed maintenance to ensure zero downtime.'], ['03', 'ERP Development', 'Custom enterprise resource planning platforms optimized for complex inventory, finance, and supply chain logistics.'], ['04', 'POS Software', 'High-volume cloud retail and restaurant point-of-sale systems featuring real-time analytics and multi-outlet synchronization.'], ['05', 'Web Design & Development', 'Ultra-fast, high-converting corporate websites and web apps engineered on modern Next.js and Tailwind CSS stacks.'], ['06', 'Digital Marketing', 'Data-driven SEO, targeted B2B lead generation, and performance marketing strategies designed to drive measurable revenue.']] as [$k, $t, $d])
+            @foreach ([['01', 'Custom Software Development', 'Bespoke web and mobile applications, legacy modernization, and scalable API architectures built entirely by senior engineers.'], ['02', 'Application Services', 'Continuous cloud DevOps optimization, security compliance, and SLA backed maintenance to ensure zero downtime.'], ['03', 'ERP Development', 'Custom enterprise resource planning platforms optimized for complex inventory, finance, and supply chain logistics.'], ['04', 'POS Software', 'High volume cloud retail and restaurant point-of-sale systems featuring real time analytics and multi outlet synchronization.'], ['05', 'Web Design & Development', 'Ultra fast, high converting corporate websites and web apps engineered on modern Next.js and Tailwind CSS stacks.'], ['06', 'Digital Marketing', 'Data driven SEO, targeted B2B lead generation, and performance marketing strategies designed to drive measurable revenue.']] as [$k, $t, $d])
                 <div class="bg-background p-8 md:p-12 group hover:bg-surface-muted transition-colors">
                     <div class="flex items-baseline justify-between">
                         <span class="text-xs tracking-widest text-brand-azure">{{ $k }}</span>
@@ -96,7 +96,7 @@
                 </h2>
             </div>
             <div class="space-y-10">
-                @foreach ([['Architectural Discovery', 'We analyze your business bottlenecks before writing a single line of code. From custom ERP workflows to digital marketing funnels, we architect systems built to scale.'], ['Iterative Engineering', 'Built exclusively by senior developers using modern cloud stacks. You get live, working software delivered in weekly sprints—never quarterly surprises.'], ['Operate & Scale', 'We deploy with zero downtime and accelerate your growth through data-driven digital marketing. You own the code; we own the performance and SLAs.']] as $i => [$t, $d])
+                @foreach ([['Architectural Discovery', 'We analyze your business bottlenecks before writing a single line of code. From custom ERP workflows to digital marketing funnels, we architect systems built to scale.'], ['Iterative Engineering', 'Built exclusively by senior developers using modern cloud stacks. You get live, working software delivered in weekly sprints never quarterly surprises.'], ['Operate & Scale', 'We deploy with zero downtime and accelerate your growth through data driven digital marketing. You own the code; we own the performance and SLAs.']] as $i => [$t, $d])
                     <div class="grid grid-cols-[auto_1fr] gap-6 border-t border-white/15 pt-8">
                         <span class="text-sm text-brand-sky">
                             0{{ $i + 1 }}
@@ -123,7 +123,7 @@
             <x-section-header eyebrow="WHY PARTNER WITH STACKXIS"
                 title="Senior software engineering. Scalable architectures. Zero agency bloat." />
             <ul class="grid sm:grid-cols-2 gap-4">
-                @foreach (['Enterprise-Grade Architectures', '100% Senior Developers', 'Agile Software Delivery', 'Full Source Code Ownership'] as $t)
+                @foreach (['Enterprise Grade Architectures', '100% Senior Developers', 'Agile Software Delivery', 'Full Source Code Ownership'] as $t)
                     <li class="rounded-2xl border border-hairline p-6 flex items-center gap-3">
                         <span class="h-2 w-2 rounded-full bg-brand-azure"></span>
                         <span class="font-medium">{{ $t }}</span>
