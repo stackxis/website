@@ -55,6 +55,25 @@ class PortfolioItem extends Model
         return $query->orderBy('sort_order');
     }
 
+    public function resolvedUrl(): ?string
+    {
+        $url = trim((string) $this->url);
+
+        if ($url === '') {
+            return null;
+        }
+
+        if (preg_match('#^https?://(localhost|127\.0\.0\.1)(:\d+)?#i', $url)) {
+            return null;
+        }
+
+        if (str_starts_with($url, '/')) {
+            return url($url);
+        }
+
+        return $url;
+    }
+
     /**
      * @return array<string, mixed>
      */
@@ -68,7 +87,7 @@ class PortfolioItem extends Model
             'metric' => $this->metric,
             'summary' => $this->summary,
             'stack' => $this->stack,
-            'url' => $this->url,
+            'url' => $this->resolvedUrl(),
         ];
     }
 }

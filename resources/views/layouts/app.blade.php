@@ -113,9 +113,9 @@
                 align-items: center;
             ">
             <a
-                href="https://wa.me/94740190589"
+                href="https://wa.me/{{ config('services.whatsapp.number') }}"
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="nofollow noopener noreferrer"
                 aria-label="Chat on WhatsApp"
                 class="floating-action-btn"
                 style="

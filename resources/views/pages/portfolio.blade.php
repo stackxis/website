@@ -1,8 +1,6 @@
 @extends('layouts.app')
 
 @php
-    $caseStudyBase = rtrim(config('app.url'), '/');
-
     $filters = [
         ['id' => 'all', 'label' => 'All Deployments'],
         ['id' => 'cloud-erp', 'label' => 'Cloud ERPs'],
@@ -17,14 +15,20 @@
         '@type' => 'ItemList',
         'name' => 'Stackxis Case Studies and Software Deployments',
         'description' => 'Portfolio of custom software, ERP, and POS systems engineered by Stackxis.',
-        'itemListElement' => $deployments->values()->map(function ($card, $index) {
-            return [
+        'itemListElement' => $deployments->values()->flatMap(function ($card, $index) {
+            $url = $card->resolvedUrl();
+
+            if ($url === null) {
+                return [];
+            }
+
+            return [[
                 '@type' => 'ListItem',
                 'position' => $index + 1,
-                'url' => $card->url,
+                'url' => $url,
                 'name' => $card->metric ?? $card->deployment_type ?? 'Stackxis deployment',
-            ];
-        })->all(),
+            ]];
+        })->values()->all(),
     ];
 @endphp
 
@@ -73,9 +77,9 @@
                             <span class="work-tech-chip">{{ $tech }}</span>
                         @endforeach
                     </div>
-                    @if ($featured->url)
+                    @if ($featured->resolvedUrl())
                         <a
-                            href="{{ $featured->url }}"
+                            href="{{ $featured->resolvedUrl() }}"
                             class="mt-8 inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-medium text-primary-foreground hover:opacity-90 transition"
                         >
                             Read the full technical case study <span aria-hidden="true">→</span>
