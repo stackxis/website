@@ -16,8 +16,8 @@
             <div>
                 <h3 class="text-xs uppercase tracking-[0.2em] text-brand-azure font-medium">WhatsApp</h3>
                 <p class="mt-3 text-xl font-medium">
-                    <a href="https://wa.me/{{ config('services.whatsapp.number') }}" target="_blank" rel="nofollow noopener noreferrer"
-                        class="hover:text-brand-azure transition">+94 740 190 589</a>
+                    <a href="https://wa.me/{{ config('services.whatsapp.number') }}" target="_blank"
+                        rel="nofollow noopener noreferrer" class="hover:text-brand-azure transition">+94 740 190 589</a>
                 </p>
             </div>
             <div>
@@ -69,25 +69,25 @@
                 </div>
             </div>
         </div>
-        <form action="{{ route('contact.store') }}" method="POST"
+        <form action="{{ route('contact.store') }}" method="POST" id="contact-form"
             class="rounded-3xl border border-hairline bg-surface-muted p-8 md:p-10 space-y-6">
             @csrf
 
-            @if (session('sent'))
-                <div class="rounded-xl border border-green-500/30 bg-green-500/10 px-4 py-3 text-sm text-green-700 dark:text-green-300">
-                    Thanks for reaching out. We received your message and will get back to you within one business day.
-                </div>
-            @endif
+          @if (session('sent'))
+    <div class="rounded-xl border border-green-600/30 bg-green-500 dark:bg-green-900/30 px-4 py-3 text-sm text-green-800 dark:text-green-200">
+        Thanks for reaching out. We received your message and will get back to you within one business day.
+    </div>
+@endif
 
-            @if ($errors->any())
-                <div class="rounded-xl border border-red-500/30 bg-red-500/10 px-4 py-3 text-sm text-red-700 dark:text-red-300">
-                    <ul class="space-y-1">
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
+@if ($errors->any())
+    <div class="rounded-xl border border-red-600/30 bg-red-100 dark:bg-red-900/30 px-4 py-3 text-sm text-red-800 dark:text-red-200">
+        <ul class="space-y-1">
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 
             <div class="grid md:grid-cols-2 gap-6">
 
@@ -170,6 +170,18 @@
                 <textarea id="message" name="message" rows="6" maxlength="1500"
                     placeholder="Tell us about your project, goals, required features, expected timeline, and any challenges you're facing."
                     class="w-full rounded-xl border border-hairline bg-background px-4 py-3">{{ old('message') }}</textarea>
+            </div>
+
+            @if ($errors->has('turnstile'))
+                <div
+                    class="rounded-xl border border-red-500/30 bg-red-500/10 px-4 py-3 text-sm text-red-700 dark:text-red-300">
+                    {{ $errors->first('turnstile') }}
+                </div>
+            @endif
+
+            <div class="flex justify-center py-2">
+                <div class="cf-turnstile" data-sitekey="{{ config('services.turnstile.sitekey') }}" data-theme="light"
+                    data-size="normal" data-action="contact"></div>
             </div>
 
             <button type="submit"

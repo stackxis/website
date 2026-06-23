@@ -39,4 +39,9 @@ return [
         'number' => env('WHATSAPP_NUMBER', '94740190589'),
     ],
 
+    'turnstile' => [
+        'sitekey' => env('CLOUDFLARE_TURNSTILE_SITEKEY'),
+        'secret'  => env('CLOUDFLARE_TURNSTILE_SECRET'),
+    ],
+
 ];
